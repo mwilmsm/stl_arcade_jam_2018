@@ -45,5 +45,6 @@ public class LineScript : MonoBehaviour {
         {
             Debug.Log("Hit the enemy! " + Time.time);
         }
+        // else add points
     }
 }
