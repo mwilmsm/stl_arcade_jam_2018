@@ -35,3 +35,6 @@ Thumbs.db
 *.blend1
 
 *.blend1.meta
+
+# Stupid shit
+Library/shadercompiler-UnityShaderCompiler.exe0.log
