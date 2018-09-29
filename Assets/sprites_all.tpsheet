@@ -1,0 +1,37 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:956366a2a354c59195fd24e5a19a4696:ab7aac17d82c7228966731e2588459e9:f683c4e9aa78f29e0ed6c6b94537e31d$
+#
+:format=40300
+:texture=sprites_all.png
+:size=256x512
+:pivotpoints=enabled
+:borders=disabled
+
+leftman/idle/idle1;1;447;48;64; 0.5;0.25; 0;0;0;0
+leftman/idle/idle2;50;447;48;64; 0.5;0.25; 0;0;0;0
+leftman/run/run1;99;447;48;64; 0.5;0.25; 0;0;0;0
+leftman/run/run2;148;447;48;64; 0.5;0.25; 0;0;0;0
+leftman/run/run3;197;447;48;64; 0.5;0.25; 0;0;0;0
+leftman/run/run4;1;382;48;64; 0.5;0.25; 0;0;0;0
+middleman/hear/listen1;50;382;64;64; 0.5;0.25; 0;0;0;0
+middleman/hear/listen2;115;382;64;64; 0.5;0.25; 0;0;0;0
+middleman/idle/idle1;180;382;64;64; 0.5;0.25; 0;0;0;0
+middleman/idle/idle2;1;317;64;64; 0.5;0.25; 0;0;0;0
+middleman/run/run1;66;317;64;64; 0.5;0.25; 0;0;0;0
+middleman/run/run2;131;317;64;64; 0.5;0.25; 0;0;0;0
+middleman/run/run3;1;252;64;64; 0.5;0.25; 0;0;0;0
+middleman/run/run4;66;252;64;64; 0.5;0.25; 0;0;0;0
+middleman/startle/startle1;131;252;64;64; 0.5;0.25; 0;0;0;0
+misc/dish;196;276;22;40; 0.5;0.5; 0;0;0;0
+misc/soundwave;219;315;11;1; 0.5;0.5; 0;0;0;0
+rightman/idle/idle1;1;187;32;64; 0.5;0.25; 0;0;0;0
+rightman/idle/idle2;34;187;32;64; 0.5;0.25; 0;0;0;0
+rightman/run/run1;67;187;32;64; 0.5;0.25; 0;0;0;0
+rightman/run/run2;100;187;32;64; 0.5;0.25; 0;0;0;0
+rightman/run/run3;133;187;32;64; 0.5;0.25; 0;0;0;0
+rightman/run/run4;166;187;32;64; 0.5;0.25; 0;0;0;0
