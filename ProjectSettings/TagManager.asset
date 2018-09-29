@@ -49,3 +49,6 @@ TagManager:
   - name: Character
     uniqueID: 1057802843
     locked: 0
+  - name: Panel
+    uniqueID: 190590185
+    locked: 0

@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStatusScript : MonoBehaviour
 {
@@ -13,8 +16,12 @@ public class GameStatusScript : MonoBehaviour
 	public GameObject GoodEndingPanel;
 	public GameObject BadEndingPanel;
 
+	public GameObject Timer;
+
 	public int MaxSecrets = 10;
 	public float MaxGameTime = 240f;
+
+	public String GameScene;
 
 	private bool GameOver;
 	private bool GoodEnding;
@@ -33,6 +40,8 @@ public class GameStatusScript : MonoBehaviour
 		GameOverPanel.SetActive(false);
 		GoodEndingPanel.SetActive(false);
 		BadEndingPanel.SetActive(false);
+		
+		Time.timeScale = 1f;
 	}
 	
 	// Update is called once per frame
@@ -58,6 +67,12 @@ public class GameStatusScript : MonoBehaviour
 		{
 			GameOverScreen();
 		}
+		Timer.GetComponentInChildren<TextMeshPro>().SetText(GameTime.ToString());
+		
+		if (Input.GetKey("escape"))
+		{
+			QuitGame();
+		}
 	}
 
 	private void GameOverScreen()
@@ -77,5 +92,17 @@ public class GameStatusScript : MonoBehaviour
 		}
 
 		
+	}
+
+	public void RestartGame()
+	{
+		Time.timeScale = 1f;
+		GameOver = false;
+		SceneManager.LoadScene(GameScene);
+	}
+
+	public void QuitGame()
+	{
+		Application.Quit();
 	}
 }
