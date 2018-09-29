@@ -19,6 +19,7 @@ public class LineScript : MonoBehaviour {
 	public int linePoints = 100;
 	public int sinRatio = 1;
 	public float yScale = 1;
+	public float xScale = 1;
  
 	// Use this for initialization
 	void Start () {
@@ -106,6 +107,6 @@ public class LineScript : MonoBehaviour {
 
 	float ComputeX(Vector2 start, int currentPoint)
 	{
-		return (start.x + (distanceBetween / linePoints) * currentPoint);
+		return (start.x + (xScale * ((distanceBetween / linePoints) * currentPoint)));
 	}
 }
