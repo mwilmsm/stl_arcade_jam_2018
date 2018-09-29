@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 949593762}
   - component: {fileID: 949593761}
   - component: {fileID: 949593760}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15fa97d7774f6545b15af3fa22733f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 10
+  walkSpeed: 20
   timeUntilDirectionChange: 2
 --- !u!61 &949593761
 BoxCollider2D:
@@ -989,7 +989,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 949593759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13, y: -1.58, z: -0.015576106}
+  m_LocalPosition: {x: -0.13, y: -1.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1144,6 +1144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObject1: {fileID: 1079492480}
   gameObject2: {fileID: 2087312216}
+  safeZoneRadius: 0.05
 --- !u!1 &1159999483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,7 +1651,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087312216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.95, y: -0.25, z: -0.015576106}
+  m_LocalPosition: {x: 9.95, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
