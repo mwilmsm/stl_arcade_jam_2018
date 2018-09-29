@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameStatusScript : MonoBehaviour
@@ -12,6 +13,8 @@ public class GameStatusScript : MonoBehaviour
 	public GameObject GameOverPanel;
 	public GameObject GoodEndingPanel;
 	public GameObject BadEndingPanel;
+
+	public GameObject Timer;
 
 	public int MaxSecrets = 10;
 	public float MaxGameTime = 240f;
@@ -58,6 +61,7 @@ public class GameStatusScript : MonoBehaviour
 		{
 			GameOverScreen();
 		}
+		Timer.GetComponentInChildren<TextMeshPro>().SetText(GameTime.ToString());
 	}
 
 	private void GameOverScreen()

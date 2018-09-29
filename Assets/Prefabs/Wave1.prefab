@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4944256691236352}
   - component: {fileID: 114883316925619304}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: SafeZone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4507544976315760}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wave1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4165327942553952}
   - component: {fileID: 212715539763252314}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1693811320936782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.022953, y: -5.48, z: 0.60360605}
+  m_LocalPosition: {x: 9.14, y: -2.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4659765023743122}
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1454741492207944}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c15fa97d7774f6545b15af3fa22733f4, type: 3}
   m_Name: 
