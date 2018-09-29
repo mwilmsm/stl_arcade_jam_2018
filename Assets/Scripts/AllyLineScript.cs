@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using System.Reflection;
 using UnityEditor.Experimental.UIElements;
 
-public class LineScript : MonoBehaviour {
+public class AllyLineScript : MonoBehaviour {
  
 	public GameObject gameObject1;          // Reference to the first GameObject
 	public GameObject gameObject2;          // Reference to the second GameObject
@@ -54,16 +54,12 @@ public class LineScript : MonoBehaviour {
 
 			wiggle += Time.deltaTime;
 
-			
-
 			float maxWiggle = (Mathf.PI * 2); 
 			if (wiggle > maxWiggle)
 			{
 				wiggle = 0;
 			}
 			
-			
-
 			line.positionCount = linePoints;
 
 			line.SetPosition(0, start);
@@ -138,7 +134,7 @@ public class LineScript : MonoBehaviour {
 
 	float ComputeSin(float x)
 	{
-		float sinValue = Mathf.Sin(x + wiggle) * sinFreq;
+		float sinValue = Mathf.Sin(x - wiggle) * sinFreq;
 
 		return sinValue;
 	}
@@ -163,9 +159,9 @@ public class LineScript : MonoBehaviour {
 			nextDistance = distanceBetween;
 		}
 		
-		nextPoint = start.x +  (xScale * nextDistance);
+		nextPoint = start.x -  (xScale * nextDistance);
 
-		if (nextPoint > (stop.x * xScale))
+		if (nextPoint < (stop.x * xScale))
 		{
 			nextPoint = stop.x;
 		}
