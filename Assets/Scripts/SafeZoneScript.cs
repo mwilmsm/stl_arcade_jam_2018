@@ -14,10 +14,10 @@ public class SafeZoneScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.Stretch(leftCharacter.transform.position, rightCharacter.transform.position);
+        this.Center(leftCharacter.transform.position, rightCharacter.transform.position);
 	}
 
-    public void Stretch(Vector2 _initialPosition, Vector2 _finalPosition)
+    public void Center(Vector2 _initialPosition, Vector2 _finalPosition)
     {
         Vector2 centerPos = (_initialPosition + _finalPosition) / 2f;
         this.gameObject.transform.position = centerPos;
