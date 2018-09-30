@@ -74,7 +74,7 @@ public class GameStatusScript : MonoBehaviour
 		{
 			GameOverScreen();
 		}
-		Timer.GetComponentInChildren<TextMeshPro>().SetText(GameTime.ToString());
+		Timer.GetComponentInChildren<TextMeshPro>().SetText(GameTime.ToString("F2"));
 		
 		if (Input.GetKey("escape"))
 		{
