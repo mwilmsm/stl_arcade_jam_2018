@@ -51,21 +51,36 @@ public class PlayerActionScript : MonoBehaviour
 
         if (Input.GetButtonDown(player + "Button1"))
         {
-            //do thing
-            this.animator.SetTrigger("pushedQuietButton");
-            GameStatusScript.KeepThemSecrets();
+            if (player == "Player1")
+            {
+                PressQuietButton();
+            }else if (player == "Player2" && player2Active)
+            {
+                PressQuietButton();
+            }
+
         }
 
 
         //Check if player two is trying to join
         if (!player2Active)
         {
-            if (Input.GetButtonDown("Player2Button1") || Input.GetButton("Player2Button2"))
+            if (Input.GetButtonDown("Player2Button2"))
             {
                 AllyMovementScript.Player2Joined();
                 player2Active = true;
+                EventManager.TriggerEvent("PLAYER2_JOIN");
             }
         }
+    }
+
+    private void PressQuietButton()
+    {
+//do thing
+        this.animator.SetTrigger("pushedQuietButton");
+
+        EventManager.TriggerEvent("SILENT_ACTIVATED");
+        GameStatusScript.KeepThemSecrets();
     }
 
     public void StunTheCat()

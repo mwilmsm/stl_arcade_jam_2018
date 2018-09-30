@@ -85,6 +85,7 @@ public class AllyLineScript : MonoBehaviour {
 					beQuiet = false;
                     this.safeZoneRadius = this.defaultSafeZoneRadius;
                     silenceTime = 0f;
+					EventManager.TriggerEvent("SILENT_DEACTIVATED");
 				}
 			}
 			
