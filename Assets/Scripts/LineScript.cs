@@ -10,7 +10,7 @@ public class LineScript : MonoBehaviour {
 	public GameObject gameObject2;          // Reference to the second GameObject
  
 	private LineRenderer line;                           // Line Renderer
-    public float defaultSafeZoneRadius = 0.25f;
+    public float defaultSafeZoneRadius = 0.05f;
     private float stunnedSafeZoneRadius = 0.95f;
     public float safeZoneRadius;                  // as a percentage - the safe zone is 0.5 +/- safeZoneRadius
 
@@ -198,7 +198,6 @@ public class LineScript : MonoBehaviour {
 
 	public void SilenceTheLine(float timeToBeQuiet)
 	{
-        Debug.Log("Silence the line called");
 		beQuiet = true;
 		silenceTime = 0f;
 		maxSilentTime = timeToBeQuiet;

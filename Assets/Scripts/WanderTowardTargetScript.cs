@@ -10,11 +10,14 @@ public class WanderTowardTargetScript : MonoBehaviour {
     private float wanderDirectionTimer;
     public float wanderDirectionUpdateTime;
 
+    private Animator animator;
+
     private bool stunned = false;
 
     // Use this for initialization
     void Start () {
         this.rb2d = gameObject.GetComponent<Rigidbody2D>();
+        this.animator = gameObject.GetComponent<Animator>();
         EventManager.StartListening("STUN_ACTIVATED", OnStunned);
         EventManager.StartListening("STUN_DEACTIVATED", EndStunned);
         Wander();
@@ -48,6 +51,7 @@ public class WanderTowardTargetScript : MonoBehaviour {
     void OnStunned()
     {
         stunned = true;
+        animator.SetTrigger("startleHit");
     }
 
     void EndStunned()

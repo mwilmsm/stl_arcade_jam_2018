@@ -16,6 +16,8 @@ public class PlayerActionScript : MonoBehaviour {
 
     private GameStatusScript GameStatusScript;
 
+    private Animator animator;
+
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class PlayerActionScript : MonoBehaviour {
         player2Active = false;
         AllyMovementScript = GameObject.Find("Ally1").GetComponentInChildren<AllyMovementScript>();
         GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
+        this.animator = this.gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class PlayerActionScript : MonoBehaviour {
             {
                 stunActivated = true;
                 stunTimer = Time.time;
+                this.animator.SetTrigger("pushedStunButton");
                 EventManager.TriggerEvent("STUN_ACTIVATED");
             }
         }
@@ -45,6 +49,7 @@ public class PlayerActionScript : MonoBehaviour {
         if (Input.GetButtonDown(player + "Button2"))
         {
             //do thing
+            this.animator.SetTrigger("pushedQuietButton");
             GameStatusScript.KeepThemSecrets();
         }
 

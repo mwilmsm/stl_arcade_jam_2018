@@ -10,7 +10,7 @@ public class AllyLineScript : MonoBehaviour {
 	public GameObject gameObject2;          // Reference to the second GameObject
  
 	private LineRenderer line;                           // Line Renderer
-    public float defaultSafeZoneRadius = 0.25f;
+    public float defaultSafeZoneRadius = 0.05f;
     private float stunnedSafeZoneRadius = 0.95f;
     public float safeZoneRadius;                  // as a percentage - the safe zone is 0.5 +/- safeZoneRadius
 
@@ -135,11 +135,6 @@ public class AllyLineScript : MonoBehaviour {
 	{
 		return (start.y - ComputeM(start, stop) * start.x);
 	}
-
-//	float ComputeY(float x, Vector2 start, Vector2 stop)
-//	{
-//		return ComputeSin(x) + ComputeM(start, stop) * x + ComputeB(start, stop);
-//	}
 	
 	float ComputeY(float x, Vector2 start, Vector2 stop)
 	{
