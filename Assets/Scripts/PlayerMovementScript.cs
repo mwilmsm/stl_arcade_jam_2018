@@ -51,23 +51,7 @@ public class PlayerMovementScript : MonoBehaviour {
         this.animator.SetFloat("speed", velocity.magnitude);
         this.rb2d.velocity = velocity;
 
-        //Check if player two is trying to join
-        if (!player2Active)
-        {
-            if(Input.GetButton("Player2Button1"))
-            {
-                Player2Joined();
-            }
-
-            if (Input.GetButton("Player2Button2"))
-            {
-                Player2Joined();
-            }
-        }
+       
     }
     
-    public void Player2Joined()
-    {
-        AllyMovementScript.Player2Joined();
-    }
 }
