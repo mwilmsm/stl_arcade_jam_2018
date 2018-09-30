@@ -51,4 +51,6 @@ public class AllyMovementScript : MonoBehaviour {
 	{
 		this.enabled = true;
 	}
+	
+	
 }

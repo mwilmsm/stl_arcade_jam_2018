@@ -23,6 +23,12 @@ public class AllyLineScript : MonoBehaviour {
 	public float xScale = 1;
 	private float wiggle;
 	public bool wiggleInverse = true;
+	
+	
+	private bool beQuiet;
+	private float silenceTime;
+
+	private float maxSilentTime = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -38,6 +44,9 @@ public class AllyLineScript : MonoBehaviour {
 
 		
 		FindDistanceBetween();
+		
+		beQuiet = false;
+		silenceTime = 0f;
 	}
      
 	// Update is called once per frame
@@ -58,6 +67,17 @@ public class AllyLineScript : MonoBehaviour {
 			if (wiggle > maxWiggle)
 			{
 				wiggle = 0;
+			}
+			
+			if (beQuiet)
+			{
+				silenceTime += Time.deltaTime;
+
+				if (silenceTime >= maxSilentTime)
+				{
+					beQuiet = false;
+					silenceTime = 0f;
+				}
 			}
 			
 			line.positionCount = linePoints;
@@ -127,9 +147,29 @@ public class AllyLineScript : MonoBehaviour {
 		return (start.y - ComputeM(start, stop) * start.x);
 	}
 
+//	float ComputeY(float x, Vector2 start, Vector2 stop)
+//	{
+//		return ComputeSin(x) + ComputeM(start, stop) * x + ComputeB(start, stop);
+//	}
+	
 	float ComputeY(float x, Vector2 start, Vector2 stop)
 	{
-		return ComputeSin(x) + ComputeM(start, stop) * x + ComputeB(start, stop);
+		float y = 0f;
+		if (beQuiet)
+		{
+			y = ComputeLine(x, start,stop);
+		}
+		else
+		{
+			y = ComputeSin(x) + ComputeLine(x, start,stop);
+		}
+
+		return y;
+	}
+
+	float ComputeLine(float x, Vector2 start, Vector2 stop)
+	{
+		return ComputeM(start, stop) * x + ComputeB(start, stop);
 	}
 
 	float ComputeSin(float x)
@@ -167,5 +207,12 @@ public class AllyLineScript : MonoBehaviour {
 		}
 		
 		return nextPoint;
+	}
+	
+	public void SilenceTheLine(float timeToBeQuiet)
+	{
+		beQuiet = true;
+		silenceTime = 0f;
+		maxSilentTime = timeToBeQuiet;
 	}
 }

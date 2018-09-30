@@ -14,11 +14,18 @@ public class DangerZoneScript : MonoBehaviour
 
 	private GameStatusScript GameStatusScript;
 
+	private float silentTimer;
+	private float maxSilentTime;
+	private bool isSilent;
+
 	// Use this for initialization
 	void Start()
 	{
 		enemyStealing = false;
 		timer = 0f;
+
+		isSilent = false;
+		silentTimer = 0f;
 
 		GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
 	}
@@ -39,6 +46,21 @@ public class DangerZoneScript : MonoBehaviour
 		else
 		{
 			timer = 0f;
+		}
+
+		if (isSilent)
+		{
+			silentTimer += Time.deltaTime;
+			if (silentTimer > maxSilentTime)
+			{
+				isSilent = false;
+				silentTimer = 0f;
+				gameObject.GetComponent<PolygonCollider2D>().enabled = true;
+			}
+		}
+		else
+		{
+			silentTimer = 0f;
 		}
 
 	}
@@ -74,5 +96,12 @@ public class DangerZoneScript : MonoBehaviour
 	{
 		//Call Game status secrets
 		GameStatusScript.SecretsStolen();
+	}
+
+	public void KeepThemSecrets(float timeToBeQuiet)
+	{
+		maxSilentTime = timeToBeQuiet;
+		isSilent = true;
+		gameObject.GetComponent<PolygonCollider2D>().enabled = false;
 	}
 }

@@ -76,5 +76,6 @@ public class PlayerMovementScript : MonoBehaviour {
     public void Player2Joined()
     {
         AllyMovementScript.Player2Joined();
+        player2Active = true;
     }
 }

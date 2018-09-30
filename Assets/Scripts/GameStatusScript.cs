@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class GameStatusScript : MonoBehaviour
 {
 
-
+//Should really be called Game Manager but at this point I don't want to break stuff that is mapping to the name
+	
 	public int SecretsListened;
 	public float GameTime;
 
@@ -34,7 +35,15 @@ public class GameStatusScript : MonoBehaviour
 	private Color lowSecret =  new Color(1f,1f,0f,1f);
 	private Color midSecret =  new Color(1f,.5f,0f,1f);
 	private Color highSecret =  new Color(1f,0f,0f,1f);
+
+	private LineScript playerLineScript;
+	private AllyLineScript AllyLineScript;
+
+	private DangerZoneScript leftDangerZoneScript;
+	private DangerZoneScript rightDangerZoneScript;
 	
+	public float timetoBeQuiet = 3f;
+	public float stunTime = 3f;
 	
 	// Use this for initialization
 	void Start ()
@@ -54,6 +63,12 @@ public class GameStatusScript : MonoBehaviour
 		secretBar = CatTracker.GetComponentInChildren<Slider>();
 
 		secretBar.maxValue = MaxSecrets;
+
+		playerLineScript = GameObject.Find("PlayerSoundWave").GetComponent<LineScript>();
+		AllyLineScript = GameObject.Find("AllySoundWave").GetComponent<AllyLineScript>();
+
+		leftDangerZoneScript = GameObject.Find("DangerZoneLeft").GetComponent<DangerZoneScript>();
+		rightDangerZoneScript = GameObject.Find("DangerZoneRight").GetComponent<DangerZoneScript>();
 	}
 	
 	// Update is called once per frame
@@ -151,5 +166,19 @@ public class GameStatusScript : MonoBehaviour
 	public void SecretsStolen(int secrets)
 	{
 		SecretsListened += secrets;
+	}
+
+	public void StunDaCat()
+	{
+		
+	}
+
+	public void KeepThemSecrets()
+	{
+		playerLineScript.SilenceTheLine(timetoBeQuiet);
+		AllyLineScript.SilenceTheLine(timetoBeQuiet);
+		
+		leftDangerZoneScript.KeepThemSecrets(timetoBeQuiet);
+		rightDangerZoneScript.KeepThemSecrets(timetoBeQuiet);
 	}
 }
