@@ -82,22 +82,30 @@ public class GameStatusScript : MonoBehaviour
 
 		//Update Game Timer
 
-		if (GameTime > MaxGameTime)
+		if (GameTime > MaxGameTime && !GameOver)
 		{
 			GameOver = true;
 			GoodEnding = true;
+			GameOverScreen();
 		}
 
-		if (SecretsListened >= MaxSecrets)
+		if (SecretsListened >= MaxSecrets && !GameOver)
 		{
 			GameOver = true;
 			BadEnding = true;
+			
+			GameOverScreen();
 		}
 
 		if (GameOver)
 		{
-			GameOverScreen();
+			if (Input.GetButtonDown("Player1Button2"))
+			{
+				RestartGame();
+			}
 		}
+
+	
 		Timer.GetComponentInChildren<TextMeshPro>().SetText(GameTime.ToString("F2"));
 		
 		if (Input.GetKey("escape"))
@@ -135,14 +143,17 @@ public class GameStatusScript : MonoBehaviour
 	{
 		GameOverPanel.SetActive(true);
 		Time.timeScale = 0;
+		
 		if (BadEnding)
 		{
+			PlaySound("FailureEnd");
 			//Players lost because Cat stole too many secrets
 			BadEndingPanel.SetActive(true);
 		}
 
 		if (GoodEnding)
 		{
+			PlaySound("Game End");
 			//Players Survived the entire game
 			GoodEndingPanel.SetActive(true);
 		}

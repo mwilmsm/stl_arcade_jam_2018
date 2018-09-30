@@ -977,6 +977,16 @@ Prefab:
       propertyPath: CatTracker
       value: 
       objectReference: {fileID: 1714301592}
+    - target: {fileID: 114235914335674506, guid: fa2754dffa9cdbf419e6678c61826e49,
+        type: 2}
+      propertyPath: MaxSecrets
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114235914335674506, guid: fa2754dffa9cdbf419e6678c61826e49,
+        type: 2}
+      propertyPath: MaxGameTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114213001913013160, guid: fa2754dffa9cdbf419e6678c61826e49, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: fa2754dffa9cdbf419e6678c61826e49, type: 2}
@@ -2968,6 +2978,18 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114077662212857502, guid: 2c877d94d8f14504ab38e0417d55c11d,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Press Orange Button to Exit
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114741023529141284, guid: 2c877d94d8f14504ab38e0417d55c11d,
+        type: 2}
+      propertyPath: m_Text
+      value: Press Red Button To Try Again
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c877d94d8f14504ab38e0417d55c11d, type: 2}
