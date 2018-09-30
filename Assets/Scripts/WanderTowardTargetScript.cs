@@ -26,7 +26,6 @@ public class WanderTowardTargetScript : MonoBehaviour {
         {
             Wander();
         }
-
     }
 
     private void LateUpdate()

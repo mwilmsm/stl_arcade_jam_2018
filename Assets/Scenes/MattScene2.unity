@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 33049062}
   - component: {fileID: 33049060}
   - component: {fileID: 33049065}
+  - component: {fileID: 33049067}
   - component: {fileID: 33049061}
   - component: {fileID: 33049066}
   m_Layer: 9
@@ -288,6 +289,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &33049067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 33049059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0d6c22d27873c41a610dda04e2b268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: Player2
+  stunCooldown: 5
+  stunDuration: 3
 --- !u!1 &84046781
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1014,8 @@ MonoBehaviour:
   MaxSecrets: 25
   MaxGameTime: 240
   GameScene: RichScene
+  timetoBeQuiet: 3
+  stunTime: 3
 --- !u!114 &903343185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,8 +1203,6 @@ MonoBehaviour:
   player: Player1
   stunCooldown: 5
   stunDuration: 3
-  quietCooldown: 5
-  quietDuration: 3
 --- !u!1 &1001852956 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1430763005015386, guid: 2c877d94d8f14504ab38e0417d55c11d,
@@ -1467,6 +1482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObject1: {fileID: 33049059}
   gameObject2: {fileID: 933430831}
+  defaultSafeZoneRadius: 0.25
   safeZoneRadius: 0.45
   scaleInputRange: 66
   scaleResult: 0.5
@@ -1851,6 +1867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObject1: {fileID: 933430831}
   gameObject2: {fileID: 33049059}
+  defaultSafeZoneRadius: 0.25
   safeZoneRadius: 0.45
   scaleInputRange: 66
   scaleResult: 0.5

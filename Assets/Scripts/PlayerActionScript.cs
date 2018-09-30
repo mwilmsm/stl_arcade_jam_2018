@@ -11,9 +11,18 @@ public class PlayerActionScript : MonoBehaviour {
     private float stunTimer;
     private bool stunActivated = false;
 
+    private AllyMovementScript AllyMovementScript;
+    private bool player2Active;
+
+    private GameStatusScript GameStatusScript;
+
+
     private void Start()
     {
         stunTimer = -1 * stunCooldown;
+        player2Active = false;
+        AllyMovementScript = GameObject.Find("Ally1").GetComponentInChildren<AllyMovementScript>();
+        GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
     }
 
     // Update is called once per frame
@@ -22,7 +31,6 @@ public class PlayerActionScript : MonoBehaviour {
         {
             if (Input.GetButtonDown(player + "Button1") && (Time.time > stunTimer + stunCooldown))
             {
-                Debug.Log("stun!");
                 stunActivated = true;
                 stunTimer = Time.time;
                 EventManager.TriggerEvent("STUN_ACTIVATED");
@@ -31,8 +39,24 @@ public class PlayerActionScript : MonoBehaviour {
         else if(Time.time > stunTimer + stunDuration)
         {
             stunActivated = false;
-            Debug.Log("End stun");
             EventManager.TriggerEvent("STUN_DEACTIVATED");
         }
-	}
+
+        if (Input.GetButtonDown(player + "Button2"))
+        {
+            //do thing
+            GameStatusScript.KeepThemSecrets();
+        }
+
+
+        //Check if player two is trying to join
+        if (!player2Active)
+        {
+            if (Input.GetButtonDown("Player2Button1") || Input.GetButton("Player2Button2"))
+            {
+                AllyMovementScript.Player2Joined();
+                player2Active = true;
+            }
+        }
+    }
 }
