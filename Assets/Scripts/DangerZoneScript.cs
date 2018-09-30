@@ -113,10 +113,12 @@ public class DangerZoneScript : MonoBehaviour
     public void OnStun()
     {
         this.isStunned = true;
+	    gameObject.GetComponent<PolygonCollider2D>().enabled = false;
     }
 
     public void EndStun()
     {
         this.isStunned = false;
+	    gameObject.GetComponent<PolygonCollider2D>().enabled = true;
     }
 }

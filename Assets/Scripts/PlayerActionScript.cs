@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerActionScript : MonoBehaviour {
+public class PlayerActionScript : MonoBehaviour
+{
 
     public string player;
     public float stunCooldown;
@@ -29,24 +30,26 @@ public class PlayerActionScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (!stunActivated)
         {
-            if (Input.GetButtonDown(player + "Button1") && (Time.time > stunTimer + stunCooldown))
+            if (Input.GetButtonDown(player + "Button2") && (Time.time > stunTimer + stunCooldown))
             {
                 stunActivated = true;
                 stunTimer = Time.time;
                 this.animator.SetTrigger("pushedStunButton");
                 EventManager.TriggerEvent("STUN_ACTIVATED");
+                StunTheCat();
             }
         }
-        else if(Time.time > stunTimer + stunDuration)
+        else if (Time.time > stunTimer + stunDuration)
         {
             stunActivated = false;
             EventManager.TriggerEvent("STUN_DEACTIVATED");
         }
 
-        if (Input.GetButtonDown(player + "Button2"))
+        if (Input.GetButtonDown(player + "Button1"))
         {
             //do thing
             this.animator.SetTrigger("pushedQuietButton");
@@ -61,6 +64,24 @@ public class PlayerActionScript : MonoBehaviour {
             {
                 AllyMovementScript.Player2Joined();
                 player2Active = true;
+            }
+        }
+    }
+
+    public void StunTheCat()
+    {
+        PlaySound("StunningSound");
+    }
+
+public virtual void PlaySound(string soundName)
+    {
+        AudioSource[] sounds = GetComponents<AudioSource>();
+
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].clip.name.Contains(soundName)) 
+            {
+                sounds[i].Play();
             }
         }
     }
