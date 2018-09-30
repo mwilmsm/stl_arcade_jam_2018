@@ -110,23 +110,8 @@ public class AllyLineScript : MonoBehaviour {
 			}
 			
 			line.SetPosition(linePoints-1, end);
-
-            this.CheckForCollisions(start, end);
 		}
 	}
-
-    void CheckForCollisions(Vector2 start, Vector2 end)
-    {
-        // Check if enemy is hitting the line
-        RaycastHit2D raycast = Physics2D.Linecast(start, end, 1 << LayerMask.NameToLayer("Enemy"));
-        if (raycast.collider != null
-            && (raycast.fraction > (0.5 + this.safeZoneRadius)
-            || raycast.fraction < (0.5 - this.safeZoneRadius)))
-        {
-            Debug.Log("Hit the enemy! " + Time.time);
-        }
-        // else add points
-    }
 
 	private void FindDistanceBetween()
 	{
