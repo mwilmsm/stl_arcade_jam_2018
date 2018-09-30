@@ -819,8 +819,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1057802843
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300032, guid: 188a6bc7f4c564b4e828bf5e2a6ea653, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1092,8 +1092,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1057802843
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300032, guid: 188a6bc7f4c564b4e828bf5e2a6ea653, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1334,6 +1334,7 @@ MonoBehaviour:
   player: Player1
   stunCooldown: 5
   stunDuration: 3
+  silenceCooldown: 5
 --- !u!95 &1116713622
 Animator:
   serializedVersion: 3
@@ -2740,6 +2741,7 @@ MonoBehaviour:
   player: Player2
   stunCooldown: 5
   stunDuration: 3
+  silenceCooldown: 5
 --- !u!95 &1811641500
 Animator:
   serializedVersion: 3
