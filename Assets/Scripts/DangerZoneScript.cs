@@ -8,8 +8,6 @@ public class DangerZoneScript : MonoBehaviour
 	public GameObject target;
 
 	private bool enemyStealing;
-    private bool stunned;
-    private bool quiet;
 
 	private float timer = 0f;
 	private int stealTime = 1;
@@ -30,9 +28,6 @@ public class DangerZoneScript : MonoBehaviour
 		silentTimer = 0f;
 
 		GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
-
-        EventManager.StartListening("STUN_ACTIVATED", OnStunned);
-        EventManager.StartListening("STUN_DEACTIVATED", EndStunned);
     }
 
 	// Update is called once per frame
@@ -40,7 +35,7 @@ public class DangerZoneScript : MonoBehaviour
 	{
 		timer += Time.deltaTime;
 
-		if (enemyStealing && !stunned && !quiet)
+		if (enemyStealing && !isSilent)
 		{
 			if (timer >= stealTime)
 			{
@@ -100,26 +95,6 @@ public class DangerZoneScript : MonoBehaviour
 		//Call Game status secrets
 		GameStatusScript.SecretsStolen();
 	}
-
-    public void OnStunned()
-    {
-        this.stunned = false;
-    }
-
-    public void EndStunned()
-    {
-        this.stunned = true;
-    }
-
-    public void OnQuiet()
-    {
-        this.quiet = true;
-    }
-
-    public void EndQuiet()
-    {
-        this.quiet = false;
-    }
 
 	public void KeepThemSecrets(float timeToBeQuiet)
 	{
