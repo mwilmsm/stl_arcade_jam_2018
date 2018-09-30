@@ -1,24 +1,38 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameStatusScript : MonoBehaviour
 {
 
 
-	public int SecretsListenedToo;
+	public int SecretsListened;
 	public float GameTime;
 
 	public GameObject GameOverPanel;
 	public GameObject GoodEndingPanel;
 	public GameObject BadEndingPanel;
 
+	public GameObject Timer;
+	public GameObject CatTracker;
+
 	public int MaxSecrets = 10;
 	public float MaxGameTime = 240f;
+
+	public String GameScene;
 
 	private bool GameOver;
 	private bool GoodEnding;
 	private bool BadEnding;
+	
+	private Color safe =  new Color(0f,1f,0f,1f);
+	private Color lowSecret =  new Color(1f,1f,0f,1f);
+	private Color midSecret =  new Color(1f,.5f,0f,1f);
+	private Color highSecret =  new Color(1f,0f,0f,1f);
 	
 	
 	// Use this for initialization
@@ -33,6 +47,8 @@ public class GameStatusScript : MonoBehaviour
 		GameOverPanel.SetActive(false);
 		GoodEndingPanel.SetActive(false);
 		BadEndingPanel.SetActive(false);
+		
+		Time.timeScale = 1f;
 	}
 	
 	// Update is called once per frame
@@ -48,7 +64,7 @@ public class GameStatusScript : MonoBehaviour
 			GoodEnding = true;
 		}
 
-		if (SecretsListenedToo >= MaxSecrets)
+		if (SecretsListened >= MaxSecrets)
 		{
 			GameOver = true;
 			BadEnding = true;
@@ -57,6 +73,37 @@ public class GameStatusScript : MonoBehaviour
 		if (GameOver)
 		{
 			GameOverScreen();
+		}
+		Timer.GetComponentInChildren<TextMeshPro>().SetText(GameTime.ToString("F2"));
+		
+		if (Input.GetKey("escape"))
+		{
+			QuitGame();
+		}
+
+		UpdateSecretsBar();
+	}
+
+	private void UpdateSecretsBar()
+	{
+		Slider secretBar = CatTracker.GetComponentInChildren<Slider>();
+		secretBar.value = SecretsListened;
+
+		Image fill = secretBar.GetComponentInChildren<Image>();
+		
+		if (secretBar.value >= (secretBar.maxValue * .9))
+		{
+			fill.color = highSecret;
+		}
+		else if (secretBar.value > (secretBar.maxValue * .75))
+		{
+			fill.color = midSecret;
+		}else if (secretBar.value > (secretBar.maxValue * .5))
+		{
+			fill.color = lowSecret;
+		}else if (secretBar.value > (secretBar.maxValue * .25))
+		{
+			fill.color = safe;
 		}
 	}
 
@@ -77,5 +124,27 @@ public class GameStatusScript : MonoBehaviour
 		}
 
 		
+	}
+
+	public void RestartGame()
+	{
+		Time.timeScale = 1f;
+		GameOver = false;
+		SceneManager.LoadScene(GameScene);
+	}
+
+	public void QuitGame()
+	{
+		Application.Quit();
+	}
+
+	public void SecretsStolen()
+	{
+		SecretsStolen(1);
+	}
+
+	public void SecretsStolen(int secrets)
+	{
+		SecretsListened += secrets;
 	}
 }
