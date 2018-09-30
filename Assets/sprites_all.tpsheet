@@ -4,7 +4,7 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # https://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:6298e3ac992a8ca1c2627d68669326a3:3833e1038c1fb2a8b5e108e939826a06:f683c4e9aa78f29e0ed6c6b94537e31d$
+# $TexturePacker:SmartUpdate:75fff4df1c3e162a3811f0ebbbb2ffb9:c51903e78f05bbfb4e7d3f2aec12d8d5:f683c4e9aa78f29e0ed6c6b94537e31d$
 #
 :format=40300
 :texture=sprites_all.png
@@ -12,8 +12,8 @@
 :pivotpoints=enabled
 :borders=disabled
 
-leftman/idle/idle1;1;471;40;40; 0.5;0.25; 0;0;0;0
-leftman/idle/idle2;42;471;40;40; 0.5;0.25; 0;0;0;0
+leftman/idle/idle1;1;471;40;40; 0.5;0.5; 0;0;0;0
+leftman/idle/idle2;42;471;40;40; 0.5;0.5; 0;0;0;0
 leftman/quiet/quiet1;83;471;40;40; 0.5;0.5; 0;0;0;0
 leftman/quiet/quiet2;124;471;40;40; 0.5;0.5; 0;0;0;0
 leftman/quiet/quiet3;165;471;40;40; 0.5;0.5; 0;0;0;0
@@ -26,11 +26,11 @@ leftman/walk/walk1;124;430;40;40; 0.5;0.5; 0;0;0;0
 leftman/walk/walk2;165;430;40;40; 0.5;0.5; 0;0;0;0
 leftman/walk/walk3;206;430;40;40; 0.5;0.5; 0;0;0;0
 leftman/walk/walk4;1;389;40;40; 0.5;0.5; 0;0;0;0
-middleman/hear/listen1;42;389;40;40; 0.5;0.25; 0;0;0;0
-middleman/hear/listen2;83;389;40;40; 0.5;0.25; 0;0;0;0
+middleman/hear/listen1;42;389;40;40; 0.5;0.5; 0;0;0;0
+middleman/hear/listen2;83;389;40;40; 0.5;0.5; 0;0;0;0
 middleman/hear/listen3;124;389;40;40; 0.5;0.5; 0;0;0;0
-middleman/idle/idle1;165;389;40;40; 0.5;0.25; 0;0;0;0
-middleman/idle/idle2;206;389;40;40; 0.5;0.25; 0;0;0;0
+middleman/idle/idle1;165;389;40;40; 0.5;0.5; 0;0;0;0
+middleman/idle/idle2;206;389;40;40; 0.5;0.5; 0;0;0;0
 middleman/popup/popup1;1;348;40;40; 0.5;0.5; 0;0;0;0
 middleman/popup/popup2;42;348;40;40; 0.5;0.5; 0;0;0;0
 middleman/startle/dive1;83;348;40;40; 0.5;0.5; 0;0;0;0
@@ -43,18 +43,22 @@ middleman/walk/walk2;83;307;40;40; 0.5;0.5; 0;0;0;0
 middleman/walk/walk3;124;307;40;40; 0.5;0.5; 0;0;0;0
 middleman/walk/walk4;165;307;40;40; 0.5;0.5; 0;0;0;0
 misc/dish;206;285;46;62; 0.5;0.5; 0;0;0;0
-misc/soundwave;1;283;11;1; 0.5;0.5; 0;0;0;0
-rightman/idle/idle1;13;244;40;40; 0.5;0.25; 0;0;0;0
-rightman/idle/idle2;54;244;40;40; 0.5;0.25; 0;0;0;0
-rightman/quiet/quiet1;95;244;40;40; 0.5;0.5; 0;0;0;0
-rightman/quiet/quiet2;136;244;40;40; 0.5;0.5; 0;0;0;0
-rightman/quiet/quiet3;177;244;40;40; 0.5;0.5; 0;0;0;0
-rightman/quiet/quiet4;1;203;40;40; 0.5;0.5; 0;0;0;0
-rightman/startle/loud1;42;203;40;40; 0.5;0.5; 0;0;0;0
-rightman/startle/loud2;83;203;40;40; 0.5;0.5; 0;0;0;0
-rightman/startle/loud3;124;203;40;40; 0.5;0.5; 0;0;0;0
-rightman/startle/loud4;83;203;40;40; 0.5;0.5; 0;0;0;0
-rightman/walk/walk1;165;203;40;40; 0.5;0.5; 0;0;0;0
-rightman/walk/walk2;206;203;40;40; 0.5;0.5; 0;0;0;0
-rightman/walk/walk3;1;162;40;40; 0.5;0.5; 0;0;0;0
-rightman/walk/walk4;42;162;40;40; 0.5;0.5; 0;0;0;0
+misc/loud-active;1;252;27;32; 0.5;0.5; 0;0;0;0
+misc/loud-inactive;29;251;27;33; 0.5;0.5; 0;0;0;0
+misc/quiet-active;57;252;27;32; 0.5;0.5; 0;0;0;0
+misc/quiet-inactive;85;251;27;33; 0.5;0.5; 0;0;0;0
+misc/soundwave;113;283;11;1; 0.5;0.5; 0;0;0;0
+rightman/idle/idle1;125;244;40;40; 0.5;0.5; 0;0;0;0
+rightman/idle/idle2;166;244;40;40; 0.5;0.5; 0;0;0;0
+rightman/quiet/quiet1;207;244;40;40; 0.5;0.5; 0;0;0;0
+rightman/quiet/quiet2;1;203;40;40; 0.5;0.5; 0;0;0;0
+rightman/quiet/quiet3;42;203;40;40; 0.5;0.5; 0;0;0;0
+rightman/quiet/quiet4;83;203;40;40; 0.5;0.5; 0;0;0;0
+rightman/startle/loud1;124;203;40;40; 0.5;0.5; 0;0;0;0
+rightman/startle/loud2;165;203;40;40; 0.5;0.5; 0;0;0;0
+rightman/startle/loud3;206;203;40;40; 0.5;0.5; 0;0;0;0
+rightman/startle/loud4;165;203;40;40; 0.5;0.5; 0;0;0;0
+rightman/walk/walk1;1;162;40;40; 0.5;0.5; 0;0;0;0
+rightman/walk/walk2;42;162;40;40; 0.5;0.5; 0;0;0;0
+rightman/walk/walk3;83;162;40;40; 0.5;0.5; 0;0;0;0
+rightman/walk/walk4;124;162;40;40; 0.5;0.5; 0;0;0;0
