@@ -24,6 +24,11 @@ public class LineScript : MonoBehaviour {
 	private float wiggle;
 	public bool wiggleInverse = true;
 
+	private bool beQuiet;
+	private float silenceTime;
+
+	private float maxSilentTime = 2;
+
 	// Use this for initialization
 	void Start () {
 		// Add a Line Renderer to the GameObject
@@ -38,6 +43,9 @@ public class LineScript : MonoBehaviour {
 
 		
 		FindDistanceBetween();
+
+		beQuiet = false;
+		silenceTime = 0f;
 	}
      
 	// Update is called once per frame
@@ -54,6 +62,16 @@ public class LineScript : MonoBehaviour {
 
 			wiggle += Time.deltaTime;
 
+			if (beQuiet)
+			{
+				silenceTime += Time.deltaTime;
+
+				if (silenceTime >= maxSilentTime)
+				{
+					beQuiet = false;
+					silenceTime = 0f;
+				}
+			}
 			
 
 			float maxWiggle = (Mathf.PI * 2); 
@@ -133,7 +151,22 @@ public class LineScript : MonoBehaviour {
 
 	float ComputeY(float x, Vector2 start, Vector2 stop)
 	{
-		return ComputeSin(x) + ComputeM(start, stop) * x + ComputeB(start, stop);
+		float y = 0f;
+		if (beQuiet)
+		{
+			y = ComputeLine(x, start,stop);
+		}
+		else
+		{
+			y = ComputeSin(x) + ComputeLine(x, start,stop);
+		}
+
+		return y;
+	}
+
+	float ComputeLine(float x, Vector2 start, Vector2 stop)
+	{
+		return ComputeM(start, stop) * x + ComputeB(start, stop);
 	}
 
 	float ComputeSin(float x)
@@ -171,5 +204,12 @@ public class LineScript : MonoBehaviour {
 		}
 		
 		return nextPoint;
+	}
+
+	public void SilenceTheLine(float timeToBeQuiet)
+	{
+		beQuiet = true;
+		silenceTime = 0f;
+		maxSilentTime = timeToBeQuiet;
 	}
 }
