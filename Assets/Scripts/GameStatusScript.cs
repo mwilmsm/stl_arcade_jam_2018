@@ -44,7 +44,15 @@ public class GameStatusScript : MonoBehaviour
 	
 	public float timetoBeQuiet = 3f;
 	public float stunTime = 3f;
-	
+
+	public GameObject ReadySilenceButton;
+	public GameObject CooldownSilenceButton;
+	public GameObject ReadyP1StunButton;
+	public GameObject ReadyP2StunButton;
+	public GameObject CooldownP1StunButton;
+	public GameObject CooldownP2StunButton;
+
+	private bool player2;
 	
 	
 	// Use this for initialization
@@ -73,6 +81,16 @@ public class GameStatusScript : MonoBehaviour
 		rightDangerZoneScript = GameObject.Find("DangerZoneRight").GetComponent<DangerZoneScript>();
 		
 		PlaySound("Gamebegin");
+		
+		EventManager.StartListening("STUN_ACTIVATED", OnStun);
+		EventManager.StartListening("STUN_DEACTIVATED", EndStun);
+		
+		EventManager.StartListening("PLAYER2_JOIN", JoinPlayer2);
+		
+		EventManager.StartListening("SILENT_ACTIVATED", OnSilent);
+		EventManager.StartListening("SILENT_DEACTIVATED", EndSlient);
+
+		player2 = false;
 	}
 	
 	// Update is called once per frame
@@ -204,5 +222,53 @@ public class GameStatusScript : MonoBehaviour
 				sounds[i].Play();
 			}
 		}
+	}
+
+	private void JoinPlayer2()
+	{
+		player2 = true;
+	}
+
+	private void OnStun()
+	{
+		if (player2)
+		{
+			ReadyP1StunButton.SetActive(false);
+			ReadyP2StunButton.SetActive(false);
+			CooldownP2StunButton.SetActive(true);
+		}
+		else
+		{
+			ReadyP1StunButton.SetActive(false);
+			CooldownP1StunButton.SetActive(true);
+		}
+	}
+
+	private void EndStun()
+	{
+		if (player2)
+		{
+			ReadyP2StunButton.SetActive(true);
+			CooldownP1StunButton.SetActive(false);
+			CooldownP2StunButton.SetActive(false);
+		}
+		else
+		{
+			ReadyP1StunButton.SetActive(true);
+			CooldownP1StunButton.SetActive(false);
+			CooldownP2StunButton.SetActive(false);
+		}
+	}
+	
+	private void OnSilent()
+	{
+		ReadySilenceButton.SetActive(false);
+		CooldownSilenceButton.SetActive(true);
+	}
+
+	private void EndSlient()
+	{
+		ReadySilenceButton.SetActive(true);
+		CooldownSilenceButton.SetActive(false);
 	}
 }
