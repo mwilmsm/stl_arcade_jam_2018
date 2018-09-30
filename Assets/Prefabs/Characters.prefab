@@ -22,7 +22,9 @@ GameObject:
   - component: {fileID: 50011562335775714}
   - component: {fileID: 212969023302451108}
   - component: {fileID: 114766272741954642}
+  - component: {fileID: 114358939736303080}
   - component: {fileID: 61292194402553024}
+  - component: {fileID: 95208922522554876}
   m_Layer: 9
   m_Name: Ally1
   m_TagString: Character
@@ -109,6 +111,7 @@ GameObject:
   - component: {fileID: 114267535954404324}
   - component: {fileID: 212606274413273380}
   - component: {fileID: 61512345926766934}
+  - component: {fileID: 95420191895122464}
   m_Layer: 10
   m_Name: enemy
   m_TagString: Character
@@ -144,7 +147,9 @@ GameObject:
   - component: {fileID: 212113095360761292}
   - component: {fileID: 50101249839166096}
   - component: {fileID: 114583052917197756}
+  - component: {fileID: 114681930371990868}
   - component: {fileID: 61380122713920294}
+  - component: {fileID: 95018600228885150}
   m_Layer: 9
   m_Name: Player1
   m_TagString: Character
@@ -380,9 +385,9 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.9671252, y: -0.3442948}
       - {x: 1.0004498, y: 0.182405}
-      - {x: 0.8522452, y: 0.53976655}
+      - {x: 1.0052538, y: 0.20153713}
       - {x: 5.35, y: -0.11915779}
-      - {x: 0.8038409, y: -0.62278533}
+      - {x: 0.94074345, y: -0.34092736}
 --- !u!60 &60786599295515548
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -409,9 +414,9 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -0.99557614, y: -0.25565672}
       - {x: -0.9812454, y: 0.20773017}
-      - {x: -0.8572041, y: 0.53976655}
+      - {x: -0.99410653, y: 0.24985552}
       - {x: -5.241967, y: -0.107215166}
-      - {x: -0.797977, y: -0.62911654}
+      - {x: -0.98319817, y: -0.25062144}
 --- !u!61 &61292194402553024
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -487,6 +492,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5842105, y: 0.60594606}
   m_EdgeRadius: 0
+--- !u!95 &95018600228885150
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614146344035178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dd5d2cbe2c646a04fab7a96e4cc9df8a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &95208922522554876
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1027637888610340}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51f1c3083081e634eac54dfb1d02f080, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &95420191895122464
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470663658195504}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cc01f4d1b3e147042a3ab5f82f60d6f8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114192858887632360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -510,8 +569,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15fa97d7774f6545b15af3fa22733f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  walkSpeed: 2
   timeUntilDirectionChange: 1
+--- !u!114 &114358939736303080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1027637888610340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99f84b23b4055a4ba988ffb45967adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 5
 --- !u!114 &114498797699542312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -525,7 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObject1: {fileID: 1027637888610340}
   gameObject2: {fileID: 1614146344035178}
-  safeZoneRadius: 0.4
+  safeZoneRadius: 0.45
   scaleInputRange: 66
   scaleResult: 0.5
   distanceBetween: 0
@@ -571,8 +642,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1205519384555066}
-  wanderSpeed: 5
+  wanderSpeed: 2
   wanderDirectionUpdateTime: 1
+--- !u!114 &114681930371990868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614146344035178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0d6c22d27873c41a610dda04e2b268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: Player1
+  stunCooldown: 5
+  stunDuration: 3
+  quietCooldown: 5
+  quietDuration: 3
 --- !u!114 &114694028711619172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -611,7 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObject1: {fileID: 1614146344035178}
   gameObject2: {fileID: 1027637888610340}
-  safeZoneRadius: 0.4
+  safeZoneRadius: 0.45
   scaleInputRange: 66
   scaleResult: 0.5
   distanceBetween: 0
@@ -810,7 +897,7 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1205519384555066}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

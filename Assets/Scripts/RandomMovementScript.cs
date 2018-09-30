@@ -5,11 +5,11 @@ using UnityEngine;
 public class RandomMovementScript : MonoBehaviour
 {
 
-    public float walkSpeed = 10.0f;
+    public float walkSpeed;
     
     private Rigidbody2D rb2d;
     private float randomDirectionTimer;
-    public float timeUntilDirectionChange = 1.0f;
+    public float timeUntilDirectionChange;
     private Animator animator;
 
     private bool playerControled;
@@ -42,7 +42,8 @@ public class RandomMovementScript : MonoBehaviour
         {
             velocity = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
         }
-        this.rb2d.velocity = velocity;
+        velocity.Normalize();
+        this.rb2d.velocity = velocity * walkSpeed;
         this.animator.SetFloat("speed", velocity.magnitude);
         this.randomDirectionTimer = Time.time;
     }
