@@ -91,18 +91,19 @@ public class GameStatusScript : MonoBehaviour
 
 		Image fill = secretBar.GetComponentInChildren<Image>();
 		
-		if (secretBar.value > (secretBar.maxValue * .25))
+		if (secretBar.value >= (secretBar.maxValue * .9))
 		{
-			fill.color = safe;
+			fill.color = highSecret;
+		}
+		else if (secretBar.value > (secretBar.maxValue * .75))
+		{
+			fill.color = midSecret;
 		}else if (secretBar.value > (secretBar.maxValue * .5))
 		{
 			fill.color = lowSecret;
-		}else if (secretBar.value > (secretBar.maxValue * .75))
+		}else if (secretBar.value > (secretBar.maxValue * .25))
 		{
-			fill.color = midSecret;
-		}else if (secretBar.value >= (secretBar.maxValue))
-		{
-			fill.color = highSecret;
+			fill.color = safe;
 		}
 	}
 
@@ -135,5 +136,15 @@ public class GameStatusScript : MonoBehaviour
 	public void QuitGame()
 	{
 		Application.Quit();
+	}
+
+	public void SecretsStolen()
+	{
+		SecretsStolen(1);
+	}
+
+	public void SecretsStolen(int secrets)
+	{
+		SecretsListened += secrets;
 	}
 }
