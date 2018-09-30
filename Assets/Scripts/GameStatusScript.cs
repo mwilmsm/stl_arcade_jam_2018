@@ -45,6 +45,8 @@ public class GameStatusScript : MonoBehaviour
 	public float timetoBeQuiet = 3f;
 	public float stunTime = 3f;
 	
+	
+	
 	// Use this for initialization
 	void Start ()
 	{
@@ -69,6 +71,8 @@ public class GameStatusScript : MonoBehaviour
 
 		leftDangerZoneScript = GameObject.Find("DangerZoneLeft").GetComponent<DangerZoneScript>();
 		rightDangerZoneScript = GameObject.Find("DangerZoneRight").GetComponent<DangerZoneScript>();
+		
+		PlaySound("Gamebegin");
 	}
 	
 	// Update is called once per frame
@@ -166,6 +170,7 @@ public class GameStatusScript : MonoBehaviour
 	public void SecretsStolen(int secrets)
 	{
 		SecretsListened += secrets;
+		PlaySound("EnemyHears");
 	}
     
 	public void KeepThemSecrets()
@@ -175,5 +180,18 @@ public class GameStatusScript : MonoBehaviour
 		
 		leftDangerZoneScript.KeepThemSecrets(timetoBeQuiet);
 		rightDangerZoneScript.KeepThemSecrets(timetoBeQuiet);
+	}
+	
+	public virtual void PlaySound(string soundName)
+	{
+		AudioSource[] sounds = GetComponents<AudioSource>();
+
+		for (int i = 0; i < sounds.Length; i++)
+		{
+			if (sounds[i].clip.name.Contains(soundName)) 
+			{
+				sounds[i].Play();
+			}
+		}
 	}
 }
