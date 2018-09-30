@@ -8,12 +8,14 @@ public class PlayerMovementScript : MonoBehaviour {
 
     private Collider2D col2d;
     private Rigidbody2D rb2d;
+    private Animator animator;
 
     // Use this for initialization
     void Start()
     {
         this.col2d = gameObject.GetComponent<Collider2D>();
         this.rb2d = gameObject.GetComponent<Rigidbody2D>();
+        this.animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,6 +41,7 @@ public class PlayerMovementScript : MonoBehaviour {
             velocity.Set(walkSpeed, velocity.y);
         }
 
+        this.animator.SetFloat("speed", velocity.magnitude);
         this.rb2d.velocity = velocity;
     }
 }

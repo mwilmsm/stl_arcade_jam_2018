@@ -10,11 +10,13 @@ public class RandomMovementScript : MonoBehaviour
     private Rigidbody2D rb2d;
     private float randomDirectionTimer;
     public float timeUntilDirectionChange = 1.0f;
+    private Animator animator;
 
     // Use this for initialization
     void Start()
     {
         this.rb2d = gameObject.GetComponent<Rigidbody2D>();
+        this.animator = GetComponent<Animator>();
         this.MoveRandomly();
     }
 
@@ -35,6 +37,7 @@ public class RandomMovementScript : MonoBehaviour
             velocity = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
         }
         this.rb2d.velocity = velocity;
+        this.animator.SetFloat("speed", velocity.magnitude);
         this.randomDirectionTimer = Time.time;
     }
 }
