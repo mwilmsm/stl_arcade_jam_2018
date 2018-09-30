@@ -18,6 +18,8 @@ public class DangerZoneScript : MonoBehaviour
 	private float maxSilentTime;
 	private bool isSilent;
 
+    private bool isStunned;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -27,7 +29,12 @@ public class DangerZoneScript : MonoBehaviour
 		isSilent = false;
 		silentTimer = 0f;
 
-		GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
+        isStunned = false;
+
+        EventManager.StartListening("STUN_ACTIVATED", OnStun);
+        EventManager.StartListening("STUN_DEACTIVATED", EndStun);
+
+        GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
     }
 
 	// Update is called once per frame
@@ -35,7 +42,7 @@ public class DangerZoneScript : MonoBehaviour
 	{
 		timer += Time.deltaTime;
 
-		if (enemyStealing && !isSilent)
+		if (enemyStealing && !isSilent && !isStunned)
 		{
 			if (timer >= stealTime)
 			{
@@ -102,4 +109,14 @@ public class DangerZoneScript : MonoBehaviour
 		isSilent = true;
 		gameObject.GetComponent<PolygonCollider2D>().enabled = false;
 	}
+
+    public void OnStun()
+    {
+        this.isStunned = true;
+    }
+
+    public void EndStun()
+    {
+        this.isStunned = false;
+    }
 }

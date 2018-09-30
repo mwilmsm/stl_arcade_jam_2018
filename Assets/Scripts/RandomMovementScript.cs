@@ -12,12 +12,12 @@ public class RandomMovementScript : MonoBehaviour
     public float timeUntilDirectionChange;
     private Animator animator;
 
-    private bool playerControled;
+    private bool playerControlled;
 
     // Use this for initialization
     void Start()
     {
-        playerControled = false;
+        playerControlled = false;
         this.rb2d = gameObject.GetComponent<Rigidbody2D>();
         this.animator = GetComponent<Animator>();
         this.MoveRandomly();
@@ -26,7 +26,7 @@ public class RandomMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerControled)
+        if (!playerControlled)
         {
             if (Time.time > this.randomDirectionTimer + this.timeUntilDirectionChange)
             {
