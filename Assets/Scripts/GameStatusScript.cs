@@ -170,6 +170,7 @@ public class GameStatusScript : MonoBehaviour
 	public void SecretsStolen(int secrets)
 	{
 		SecretsListened += secrets;
+		PlaySound("EnemyHears");
 	}
 
 	public void StunDaCat()
