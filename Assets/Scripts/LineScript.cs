@@ -10,7 +10,9 @@ public class LineScript : MonoBehaviour {
 	public GameObject gameObject2;          // Reference to the second GameObject
  
 	private LineRenderer line;                           // Line Renderer
-    public float safeZoneRadius = 0.25f;                  // as a percentage - the safe zone is 0.5 +/- safeZoneRadius
+    public float defaultSafeZoneRadius = 0.25f;
+    private float stunnedSafeZoneRadius = 0.95f;
+    public float safeZoneRadius;                  // as a percentage - the safe zone is 0.5 +/- safeZoneRadius
 
 	public float scaleInputRange = 66f; // scale number from [0 to 99] to [0 to 2Pi]
 	public float scaleResult = .5f;
@@ -35,9 +37,11 @@ public class LineScript : MonoBehaviour {
 		line = this.gameObject.GetComponent<LineRenderer>();
 		// Set the width of the Line Renderer
 		line.SetWidth(0.05F, 0.05F);
-		// Set the number of vertex of the Line Renderer
-		//line.SetVertexCount(2);
-		
+        // Set the number of vertex of the Line Renderer
+        //line.SetVertexCount(2);
+
+        this.safeZoneRadius = this.defaultSafeZoneRadius;
+        	
 		
 		wiggle = 0f;
 
@@ -69,7 +73,8 @@ public class LineScript : MonoBehaviour {
 				if (silenceTime >= maxSilentTime)
 				{
 					beQuiet = false;
-					silenceTime = 0f;
+                    this.safeZoneRadius = this.defaultSafeZoneRadius;
+                    silenceTime = 0f;
 				}
 			}
 			
@@ -108,23 +113,8 @@ public class LineScript : MonoBehaviour {
 			}
 			
 			line.SetPosition(linePoints-1, end);
-
-            this.CheckForCollisions(start, end);
 		}
 	}
-
-    void CheckForCollisions(Vector2 start, Vector2 end)
-    {
-        // Check if enemy is hitting the line
-        RaycastHit2D raycast = Physics2D.Linecast(start, end, 1 << LayerMask.NameToLayer("Enemy"));
-        if (raycast.collider != null
-            && (raycast.fraction > (0.5 + this.safeZoneRadius)
-            || raycast.fraction < (0.5 - this.safeZoneRadius)))
-        {
-            Debug.Log("Hit the enemy! " + Time.time);
-        }
-        // else add points
-    }
 
 	private void FindDistanceBetween()
 	{
@@ -208,8 +198,10 @@ public class LineScript : MonoBehaviour {
 
 	public void SilenceTheLine(float timeToBeQuiet)
 	{
+        Debug.Log("Silence the line called");
 		beQuiet = true;
 		silenceTime = 0f;
 		maxSilentTime = timeToBeQuiet;
-	}
+        this.safeZoneRadius = this.stunnedSafeZoneRadius;
+    }
 }

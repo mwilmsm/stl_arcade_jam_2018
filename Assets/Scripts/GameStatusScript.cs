@@ -172,12 +172,7 @@ public class GameStatusScript : MonoBehaviour
 		SecretsListened += secrets;
 		PlaySound("EnemyHears");
 	}
-
-	public void StunDaCat()
-	{
-		
-	}
-
+    
 	public void KeepThemSecrets()
 	{
 		playerLineScript.SilenceTheLine(timetoBeQuiet);
