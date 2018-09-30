@@ -985,7 +985,7 @@ Prefab:
     - target: {fileID: 114235914335674506, guid: fa2754dffa9cdbf419e6678c61826e49,
         type: 2}
       propertyPath: MaxGameTime
-      value: 240
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 114235914335674506, guid: fa2754dffa9cdbf419e6678c61826e49,
         type: 2}
