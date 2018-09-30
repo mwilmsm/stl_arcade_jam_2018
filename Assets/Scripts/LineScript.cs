@@ -201,7 +201,6 @@ public class LineScript : MonoBehaviour {
 
 	public void SilenceTheLine(float timeToBeQuiet)
 	{
-        Debug.Log("Silence the line called");
 		beQuiet = true;
 		silenceTime = 0f;
 		maxSilentTime = timeToBeQuiet;
