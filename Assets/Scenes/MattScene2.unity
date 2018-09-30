@@ -1482,7 +1482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObject1: {fileID: 33049059}
   gameObject2: {fileID: 933430831}
-  defaultSafeZoneRadius: 0.25
+  defaultSafeZoneRadius: 0.45
   safeZoneRadius: 0.45
   scaleInputRange: 66
   scaleResult: 0.5
@@ -1867,7 +1867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObject1: {fileID: 933430831}
   gameObject2: {fileID: 33049059}
-  defaultSafeZoneRadius: 0.25
+  defaultSafeZoneRadius: 0.45
   safeZoneRadius: 0.45
   scaleInputRange: 66
   scaleResult: 0.5
