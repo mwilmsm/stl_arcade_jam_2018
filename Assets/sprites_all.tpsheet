@@ -4,7 +4,7 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # https://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:a76b5316c523b6ed6889b439e4f2fe01:ec91284abdd285bedc88b61bf6218d95:f683c4e9aa78f29e0ed6c6b94537e31d$
+# $TexturePacker:SmartUpdate:0e7ddca938672e98ad9a53988b8136d3:595829c83f9fe81c85b346b9bbc9ebbe:f683c4e9aa78f29e0ed6c6b94537e31d$
 #
 :format=40300
 :texture=sprites_all.png
@@ -47,21 +47,23 @@ misc/dish;124;244;46;62; 0.5;0.5; 0;0;0;0
 misc/face_icon;171;283;29;23; 0.5;0.5; 0;0;0;0
 misc/loud-active;201;274;27;32; 0.5;0.5; 0;0;0;0
 misc/loud-inactive;1;210;27;33; 0.5;0.5; 0;0;0;0
-misc/quiet-active;29;211;27;32; 0.5;0.5; 0;0;0;0
-misc/quiet-inactive;57;210;27;33; 0.5;0.5; 0;0;0;0
-misc/soundwave;85;242;11;1; 0.5;0.5; 0;0;0;0
-misc/timer-box1;97;211;80;32; 0.5;0.5; 0;0;0;0
-rightman/idle/idle1;178;203;40;40; 0.5;0.5; 0;0;0;0
-rightman/idle/idle2;1;162;40;40; 0.5;0.5; 0;0;0;0
-rightman/quiet/quiet1;42;162;40;40; 0.5;0.5; 0;0;0;0
-rightman/quiet/quiet2;83;162;40;40; 0.5;0.5; 0;0;0;0
-rightman/quiet/quiet3;124;162;40;40; 0.5;0.5; 0;0;0;0
-rightman/quiet/quiet4;165;162;40;40; 0.5;0.5; 0;0;0;0
-rightman/startle/loud1;206;162;40;40; 0.5;0.5; 0;0;0;0
-rightman/startle/loud2;1;121;40;40; 0.5;0.5; 0;0;0;0
-rightman/startle/loud3;42;121;40;40; 0.5;0.5; 0;0;0;0
-rightman/startle/loud4;1;121;40;40; 0.5;0.5; 0;0;0;0
-rightman/walk/walk1;83;121;40;40; 0.5;0.5; 0;0;0;0
-rightman/walk/walk2;124;121;40;40; 0.5;0.5; 0;0;0;0
-rightman/walk/walk3;165;121;40;40; 0.5;0.5; 0;0;0;0
-rightman/walk/walk4;206;121;40;40; 0.5;0.5; 0;0;0;0
+misc/loud-p2-active;29;195;27;48; 0.5;0.5; 0;0;0;0
+misc/loud-p2-inactive;57;195;27;48; 0.5;0.5; 0;0;0;0
+misc/quiet-active;85;211;27;32; 0.5;0.5; 0;0;0;0
+misc/quiet-inactive;113;210;27;33; 0.5;0.5; 0;0;0;0
+misc/soundwave;141;242;11;1; 0.5;0.5; 0;0;0;0
+misc/timer-box1;153;211;80;32; 0.5;0.5; 0;0;0;0
+rightman/idle/idle1;1;154;40;40; 0.5;0.5; 0;0;0;0
+rightman/idle/idle2;42;154;40;40; 0.5;0.5; 0;0;0;0
+rightman/quiet/quiet1;83;154;40;40; 0.5;0.5; 0;0;0;0
+rightman/quiet/quiet2;124;154;40;40; 0.5;0.5; 0;0;0;0
+rightman/quiet/quiet3;165;154;40;40; 0.5;0.5; 0;0;0;0
+rightman/quiet/quiet4;206;154;40;40; 0.5;0.5; 0;0;0;0
+rightman/startle/loud1;1;113;40;40; 0.5;0.5; 0;0;0;0
+rightman/startle/loud2;42;113;40;40; 0.5;0.5; 0;0;0;0
+rightman/startle/loud3;83;113;40;40; 0.5;0.5; 0;0;0;0
+rightman/startle/loud4;42;113;40;40; 0.5;0.5; 0;0;0;0
+rightman/walk/walk1;124;113;40;40; 0.5;0.5; 0;0;0;0
+rightman/walk/walk2;165;113;40;40; 0.5;0.5; 0;0;0;0
+rightman/walk/walk3;206;113;40;40; 0.5;0.5; 0;0;0;0
+rightman/walk/walk4;1;72;40;40; 0.5;0.5; 0;0;0;0

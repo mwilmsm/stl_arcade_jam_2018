@@ -10,17 +10,30 @@ public class WanderTowardTargetScript : MonoBehaviour {
     private float wanderDirectionTimer;
     public float wanderDirectionUpdateTime;
 
+    private bool stunned = false;
+
     // Use this for initialization
     void Start () {
         this.rb2d = gameObject.GetComponent<Rigidbody2D>();
+        EventManager.StartListening("STUN_ACTIVATED", OnStunned);
+        EventManager.StartListening("STUN_DEACTIVATED", EndStunned);
         Wander();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         if (Time.time > this.wanderDirectionTimer + this.wanderDirectionUpdateTime)
         {
             Wander();
+        }
+
+    }
+
+    private void LateUpdate()
+    {
+        if (stunned)
+        {
+            this.rb2d.velocity = new Vector2(0, 0);
         }
     }
 
@@ -30,5 +43,16 @@ public class WanderTowardTargetScript : MonoBehaviour {
         direction.Normalize();
         this.rb2d.velocity += direction * wanderSpeed;
         this.wanderDirectionTimer = Time.time;
+    }
+
+
+    void OnStunned()
+    {
+        stunned = true;
+    }
+
+    void EndStunned()
+    {
+        stunned = false;
     }
 }

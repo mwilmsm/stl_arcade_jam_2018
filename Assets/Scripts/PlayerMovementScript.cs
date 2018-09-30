@@ -9,6 +9,7 @@ public class PlayerMovementScript : MonoBehaviour {
 
     private Collider2D col2d;
     private Rigidbody2D rb2d;
+    private Animator animator;
 
     private bool player2Active;
     private AllyMovementScript AllyMovementScript;
@@ -21,6 +22,7 @@ public class PlayerMovementScript : MonoBehaviour {
 
         player2Active = false;
         AllyMovementScript = GameObject.Find("Ally1").GetComponentInChildren<AllyMovementScript>();
+        this.animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -45,37 +47,27 @@ public class PlayerMovementScript : MonoBehaviour {
         {
             velocity.Set(walkSpeed, velocity.y);
         }
-        
+
+        this.animator.SetFloat("speed", velocity.magnitude);
+        this.rb2d.velocity = velocity;
+
         //Check if player two is trying to join
         if (!player2Active)
         {
-            if (Input.GetAxis("Vertical2") > 0)
+            if(Input.GetButton("Player2Button1"))
             {
                 Player2Joined();
             }
 
-            if (Input.GetAxis("Vertical2") < 0)
-            {
-                Player2Joined();
-            }
-
-            if (Input.GetAxis("Horizontal2") < 0)
-            {
-                Player2Joined();
-            }
-
-            if (Input.GetAxis("Horizontal2") > 0)
+            if (Input.GetButton("Player2Button2"))
             {
                 Player2Joined();
             }
         }
-
-        this.rb2d.velocity = velocity;
     }
     
     public void Player2Joined()
     {
         AllyMovementScript.Player2Joined();
-        player2Active = true;
     }
 }

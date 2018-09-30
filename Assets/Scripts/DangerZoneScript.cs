@@ -28,14 +28,14 @@ public class DangerZoneScript : MonoBehaviour
 		silentTimer = 0f;
 
 		GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
-	}
+    }
 
 	// Update is called once per frame
 	void Update()
 	{
 		timer += Time.deltaTime;
 
-		if (enemyStealing)
+		if (enemyStealing && !isSilent)
 		{
 			if (timer >= stealTime)
 			{
@@ -76,7 +76,6 @@ public class DangerZoneScript : MonoBehaviour
 	{
 		if (collision.gameObject.name == "enemy")
 		{
-			//Debug.Log("enemy entered zone");
 			enemyStealing = true;
 			LosingSecrets();
 		}
@@ -86,7 +85,6 @@ public class DangerZoneScript : MonoBehaviour
 	{
 		if (collision.gameObject.name == "enemy")
 		{
-			//Debug.Log("                  enemy leaving trigger zone");
 			enemyStealing = false;
 			timer = 0f;
 		}
