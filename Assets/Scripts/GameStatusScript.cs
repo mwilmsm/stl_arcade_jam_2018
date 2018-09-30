@@ -20,7 +20,7 @@ public class GameStatusScript : MonoBehaviour
 	public GameObject Timer;
 	public GameObject CatTracker;
 
-	public int MaxSecrets = 10;
+	public int MaxSecrets = 25;
 	public float MaxGameTime = 240f;
 
 	public String GameScene;
@@ -28,6 +28,7 @@ public class GameStatusScript : MonoBehaviour
 	private bool GameOver;
 	private bool GoodEnding;
 	private bool BadEnding;
+	private Slider secretBar;
 	
 	private Color safe =  new Color(0f,1f,0f,1f);
 	private Color lowSecret =  new Color(1f,1f,0f,1f);
@@ -49,6 +50,10 @@ public class GameStatusScript : MonoBehaviour
 		BadEndingPanel.SetActive(false);
 		
 		Time.timeScale = 1f;
+		
+		secretBar = CatTracker.GetComponentInChildren<Slider>();
+
+		secretBar.maxValue = MaxSecrets;
 	}
 	
 	// Update is called once per frame
@@ -86,7 +91,7 @@ public class GameStatusScript : MonoBehaviour
 
 	private void UpdateSecretsBar()
 	{
-		Slider secretBar = CatTracker.GetComponentInChildren<Slider>();
+		
 		secretBar.value = SecretsListened;
 
 		Image fill = secretBar.GetComponentInChildren<Image>();
