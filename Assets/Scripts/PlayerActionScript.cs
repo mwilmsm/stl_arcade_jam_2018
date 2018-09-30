@@ -12,6 +12,10 @@ public class PlayerActionScript : MonoBehaviour
     private float stunTimer;
     private bool stunActivated = false;
 
+    public float silenceCooldown = 10f;
+    private float silenceTimer;
+    private bool silenceActivated = false;
+
     private AllyMovementScript AllyMovementScript;
     private bool player2Active;
 
@@ -27,11 +31,14 @@ public class PlayerActionScript : MonoBehaviour
         AllyMovementScript = GameObject.Find("Ally1").GetComponentInChildren<AllyMovementScript>();
         GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
         this.animator = this.gameObject.GetComponent<Animator>();
+
+        silenceTimer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        silenceTimer += Time.deltaTime;
         if (!stunActivated)
         {
             if (Input.GetButtonDown(player + "Button2") && (Time.time > stunTimer + stunCooldown))
@@ -49,7 +56,7 @@ public class PlayerActionScript : MonoBehaviour
             EventManager.TriggerEvent("STUN_DEACTIVATED");
         }
 
-        if (Input.GetButtonDown(player + "Button1"))
+        if (Input.GetButtonDown(player + "Button1") && !silenceActivated)
         {
             if (player == "Player1")
             {
@@ -59,6 +66,11 @@ public class PlayerActionScript : MonoBehaviour
                 PressQuietButton();
             }
 
+        }
+
+        if (silenceActivated && silenceTimer >= silenceCooldown)
+        {
+            silenceActivated = false;
         }
 
 
@@ -76,11 +88,14 @@ public class PlayerActionScript : MonoBehaviour
 
     private void PressQuietButton()
     {
-//do thing
+        //do thing
         this.animator.SetTrigger("pushedQuietButton");
 
         EventManager.TriggerEvent("SILENT_ACTIVATED");
         GameStatusScript.KeepThemSecrets();
+
+        silenceActivated = true;
+        silenceTimer = 0f;
     }
 
     public void StunTheCat()
