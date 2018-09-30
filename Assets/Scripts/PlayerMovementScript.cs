@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class PlayerMovementScript : MonoBehaviour {
     
@@ -10,11 +11,17 @@ public class PlayerMovementScript : MonoBehaviour {
     private Rigidbody2D rb2d;
     private Animator animator;
 
+    private bool player2Active;
+    private AllyMovementScript AllyMovementScript;
+
     // Use this for initialization
     void Start()
     {
         this.col2d = gameObject.GetComponent<Collider2D>();
         this.rb2d = gameObject.GetComponent<Rigidbody2D>();
+
+        player2Active = false;
+        AllyMovementScript = GameObject.Find("Ally1").GetComponentInChildren<AllyMovementScript>();
         this.animator = gameObject.GetComponent<Animator>();
     }
 
@@ -43,5 +50,24 @@ public class PlayerMovementScript : MonoBehaviour {
 
         this.animator.SetFloat("speed", velocity.magnitude);
         this.rb2d.velocity = velocity;
+
+        //Check if player two is trying to join
+        if (!player2Active)
+        {
+            if(Input.GetButton("Player2Button1"))
+            {
+                Player2Joined();
+            }
+
+            if (Input.GetButton("Player2Button2"))
+            {
+                Player2Joined();
+            }
+        }
+    }
+    
+    public void Player2Joined()
+    {
+        AllyMovementScript.Player2Joined();
     }
 }

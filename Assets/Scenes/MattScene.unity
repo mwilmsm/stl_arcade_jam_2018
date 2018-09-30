@@ -804,8 +804,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.32}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.25}
-    oldSize: {x: 1.28, y: 1.28}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 0.8}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1316,7 +1316,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.16}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.25}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.8, y: 0.8}
     newSize: {x: 0.8, y: 0.8}
     adaptiveTilingThreshold: 0.5
@@ -1480,13 +1480,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bae8cac4650754ba7217e47434d9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SecretsListenedToo: 0
+  SecretsListened: 0
   GameTime: 0
-  GameOverPanel: {fileID: 0}
-  GoodEndingPanel: {fileID: 0}
-  BadEndingPanel: {fileID: 0}
+  GameOverPanel: {fileID: 1171892154}
+  GoodEndingPanel: {fileID: 1242027403}
+  BadEndingPanel: {fileID: 890514356}
+  Timer: {fileID: 0}
+  CatTracker: {fileID: 0}
   MaxSecrets: 10
   MaxGameTime: 240
+  GameScene: 
 --- !u!114 &903343185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2813,7 +2816,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.16}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.25}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.8, y: 0.8}
     newSize: {x: 0.48, y: 0.64}
     adaptiveTilingThreshold: 0.5
