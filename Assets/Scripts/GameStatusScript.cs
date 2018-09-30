@@ -81,6 +81,7 @@ public class GameStatusScript : MonoBehaviour
 		rightDangerZoneScript = GameObject.Find("DangerZoneRight").GetComponent<DangerZoneScript>();
 		
 		PlaySound("Gamebegin");
+		PlaySound("Talking");
 		
 		EventManager.StartListening("STUN_ACTIVATED", OnStun);
 		EventManager.StartListening("STUN_DEACTIVATED", EndStun);
@@ -223,6 +224,19 @@ public class GameStatusScript : MonoBehaviour
 			}
 		}
 	}
+	
+	public virtual void StopSound(string soundName)
+	{
+		AudioSource[] sounds = GetComponents<AudioSource>();
+
+		for (int i = 0; i < sounds.Length; i++)
+		{
+			if (sounds[i].clip.name.Contains(soundName)) 
+			{
+				sounds[i].Stop();
+			}
+		}
+	}
 
 	private void JoinPlayer2()
 	{
@@ -264,11 +278,13 @@ public class GameStatusScript : MonoBehaviour
 	{
 		ReadySilenceButton.SetActive(false);
 		CooldownSilenceButton.SetActive(true);
+		StopSound("Talking");
 	}
 
 	private void EndSlient()
 	{
 		ReadySilenceButton.SetActive(true);
 		CooldownSilenceButton.SetActive(false);
+		PlaySound("Talking");
 	}
 }
