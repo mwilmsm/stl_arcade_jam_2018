@@ -167,7 +167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ddda583c54656ec4b8f2ee8537728335
+      spriteID: d0d9925e371ca8e49b69e74dea473e7b
       vertices: []
       indices: 
       edges: []
@@ -187,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a371e375b99b70d4d82698ba31b1ef12
+      spriteID: 1cbb70ce13b66f34aaa0b25cfa5fa3b8
       vertices: []
       indices: 
       edges: []
@@ -207,7 +207,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4e7f63e62f979e84baef1b57febfef0d
+      spriteID: 3d73fad761d9ad94d86eb9e739cf5aa1
       vertices: []
       indices: 
       edges: []
@@ -227,7 +227,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e678cdd98747f0d4990a6ad1f15882b4
+      spriteID: 3ab3dcb2466b55947a5e78783383cb45
       vertices: []
       indices: 
       edges: []
@@ -247,7 +247,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe61a0d2c69b2d0439df4ed1686a6879
+      spriteID: b17799ea72eb4dd4e85e51f074fdc208
       vertices: []
       indices: 
       edges: []
@@ -267,7 +267,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76ffc20afe520cd43a3170fc9e415314
+      spriteID: cd5a8e889e688234aa435208d278e5c7
       vertices: []
       indices: 
       edges: []
@@ -287,7 +287,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4409951b93b734f44afe853b96125df8
+      spriteID: d08dadd3ef0dbdc409d39a62d5582980
       vertices: []
       indices: 
       edges: []
@@ -307,7 +307,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d20edf03ca99b3c46a11bd3a84552511
+      spriteID: f73ecd4a2cc8de142854e53c2b5b7f26
       vertices: []
       indices: 
       edges: []
@@ -327,7 +327,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7c295cffaa5de66488456644eb40129c
+      spriteID: e1264a8260dda98448b1746a08c11e76
       vertices: []
       indices: 
       edges: []
@@ -347,7 +347,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 215a85bdf10d5c84a93cf4ec785d66e8
+      spriteID: cb8e7a3e52f33f94f96300d899ccc1eb
       vertices: []
       indices: 
       edges: []
@@ -367,7 +367,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 36d8d73f1b7516c4aab2b47d177ce88f
+      spriteID: 1ef106efdda98984f9bcad379df31691
       vertices: []
       indices: 
       edges: []
@@ -387,13 +387,53 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 540cccf1c262b3d419fb6065e0f391de
+      spriteID: 20fd6986517a7b9449c0efff3888cf61
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: leftman-walk-walk3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 430
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2a48bdf029f2b4588f40efcd71ac61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftman-walk-walk4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 471
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785570269c43c9d41a1a6126ada9a71f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: middleman-hear-listen1
       rect:
         serializedVersion: 2
         x: 206
@@ -407,47 +447,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f844c3626211bff409f69ed199f9b9d9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: leftman-walk-walk4
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 389
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1ae8a2533adce7c45a22c5b99749a1c0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: middleman-hear-listen1
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 389
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 214f3749df81b6c438feba98e3c41740
+      spriteID: 601338ede05020444af6aa65dd6ca989
       vertices: []
       indices: 
       edges: []
@@ -456,7 +456,7 @@ TextureImporter:
       name: middleman-hear-listen2
       rect:
         serializedVersion: 2
-        x: 83
+        x: 1
         y: 389
         width: 40
         height: 40
@@ -467,7 +467,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f542b6490cfd80947a56980e4a5d5c47
+      spriteID: 69fd92cc006d3e946addadc9dcbcf606
       vertices: []
       indices: 
       edges: []
@@ -476,7 +476,7 @@ TextureImporter:
       name: middleman-hear-listen3
       rect:
         serializedVersion: 2
-        x: 124
+        x: 42
         y: 389
         width: 40
         height: 40
@@ -487,7 +487,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 175c11f74d8c835408d7841809f93398
+      spriteID: fd4f6f48180c83943ad334e332d76b1f
       vertices: []
       indices: 
       edges: []
@@ -496,7 +496,7 @@ TextureImporter:
       name: middleman-idle-idle1
       rect:
         serializedVersion: 2
-        x: 165
+        x: 83
         y: 389
         width: 40
         height: 40
@@ -507,7 +507,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 45907c2e75d8b4147ac9e5f1f38661a9
+      spriteID: 7423c4abe792bff4f819a25c8b35ffe2
       vertices: []
       indices: 
       edges: []
@@ -516,6 +516,46 @@ TextureImporter:
       name: middleman-idle-idle2
       rect:
         serializedVersion: 2
+        x: 124
+        y: 389
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60a148e144fbfde499c534087558d7c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: middleman-popup-popup1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 389
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d138242cad52d8d4cbf2f7875b445bd0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: middleman-popup-popup2
+      rect:
+        serializedVersion: 2
         x: 206
         y: 389
         width: 40
@@ -527,13 +567,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e95c908ab5ff5ce4cbeb84b9bff972b5
+      spriteID: c7c6dcbfa6582584c8c3191a8b78d1cc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middleman-popup-popup1
+      name: middleman-startle-dive1
       rect:
         serializedVersion: 2
         x: 1
@@ -547,13 +587,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 209f89819a419314cb8b4e6f20a17284
+      spriteID: 6449c0f2918c82b4bbd58c3c50ca7d49
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middleman-popup-popup2
+      name: middleman-startle-dive2
       rect:
         serializedVersion: 2
         x: 42
@@ -567,13 +607,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9b502cc60995135488452e8f5d5408e0
+      spriteID: 90bc9eb8f59949d41b13715689400b69
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middleman-startle-dive1
+      name: middleman-startle-dive3
       rect:
         serializedVersion: 2
         x: 83
@@ -587,13 +627,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b2f3ee175b20ac4e87eea51523daecd
+      spriteID: 42339a0635779274e9952a215cd83203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middleman-startle-dive2
+      name: middleman-startle-dive4
       rect:
         serializedVersion: 2
         x: 124
@@ -607,13 +647,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6d4b314c33fead40beaf0107efdde8f
+      spriteID: ba2d8d4080a8eb34dbcf46027f985ea2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middleman-startle-dive3
+      name: middleman-startle-startle
       rect:
         serializedVersion: 2
         x: 165
@@ -627,13 +667,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0104555d571b97c448b4c1d0a523b2e5
+      spriteID: 6b1846824f927664abd463db545465c9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middleman-startle-dive4
+      name: middleman-walk-walk1
       rect:
         serializedVersion: 2
         x: 206
@@ -647,13 +687,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 209aac97ffb1f584c8a024bebfec6c3d
+      spriteID: ad0be363fb1059446bc86ab32914f165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middleman-startle-startle
+      name: middleman-walk-walk2
       rect:
         serializedVersion: 2
         x: 1
@@ -667,13 +707,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0abab50b23ccad4fa1caa1ebf5e987d
+      spriteID: 858edba80adb3814ba9e440d48fe1ae9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middleman-walk-walk1
+      name: middleman-walk-walk3
       rect:
         serializedVersion: 2
         x: 42
@@ -687,13 +727,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: acf88feddea3c8e4eb03e646ef8f8a1b
+      spriteID: df080e5760765d84c9aaf4b2aa1bc41e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middleman-walk-walk2
+      name: middleman-walk-walk4
       rect:
         serializedVersion: 2
         x: 83
@@ -707,47 +747,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63c198f6d6dbd1e40a6b96255e4b2b58
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: middleman-walk-walk3
-      rect:
-        serializedVersion: 2
-        x: 124
-        y: 307
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b91286cf3ff36e248857c8041e7a776b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: middleman-walk-walk4
-      rect:
-        serializedVersion: 2
-        x: 165
-        y: 307
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f45a507deb86e454e8560e1ab3f40122
+      spriteID: 8031ada8b18db08408d94c8250f6402a
       vertices: []
       indices: 
       edges: []
@@ -756,8 +756,8 @@ TextureImporter:
       name: misc-bar
       rect:
         serializedVersion: 2
-        x: 1
-        y: 295
+        x: 124
+        y: 336
         width: 122
         height: 11
       alignment: 0
@@ -767,7 +767,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a71a4ff394ef074180994bf36a60bef
+      spriteID: 8fc9c18996aa175438c2e6cf28123e6f
       vertices: []
       indices: 
       edges: []
@@ -776,7 +776,7 @@ TextureImporter:
       name: misc-dish
       rect:
         serializedVersion: 2
-        x: 124
+        x: 1
         y: 244
         width: 46
         height: 62
@@ -787,7 +787,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98a84480ca5645c438efbd10dd76af66
+      spriteID: 05f1dcf4f1e70c74eb6699bdc9d95e27
       vertices: []
       indices: 
       edges: []
@@ -796,7 +796,7 @@ TextureImporter:
       name: misc-face_icon
       rect:
         serializedVersion: 2
-        x: 171
+        x: 48
         y: 283
         width: 29
         height: 23
@@ -807,7 +807,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 167e89f7c3ac7ee40ac2dc915707bd74
+      spriteID: 3a85557f50a144049a7949c33fc5afca
       vertices: []
       indices: 
       edges: []
@@ -816,7 +816,7 @@ TextureImporter:
       name: misc-loud-active
       rect:
         serializedVersion: 2
-        x: 201
+        x: 78
         y: 274
         width: 27
         height: 32
@@ -827,7 +827,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d21060f31dcdc4f449d6bf63284bd455
+      spriteID: 0e7a7ddd20e74914a8a732be985fd5d6
       vertices: []
       indices: 
       edges: []
@@ -836,8 +836,8 @@ TextureImporter:
       name: misc-loud-inactive
       rect:
         serializedVersion: 2
-        x: 1
-        y: 210
+        x: 106
+        y: 273
         width: 27
         height: 33
       alignment: 0
@@ -847,7 +847,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 65a99f94b71968d4a846a9c7b099602a
+      spriteID: 28f5d7f957cac9e47b4e706724822400
       vertices: []
       indices: 
       edges: []
@@ -856,8 +856,8 @@ TextureImporter:
       name: misc-loud-p2-active
       rect:
         serializedVersion: 2
-        x: 29
-        y: 195
+        x: 134
+        y: 258
         width: 27
         height: 48
       alignment: 0
@@ -867,7 +867,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0975eb98dc7d6c946bb61135c5f5e0bb
+      spriteID: 168598818b90adc47b0bf8f8a25cf8b6
       vertices: []
       indices: 
       edges: []
@@ -876,8 +876,8 @@ TextureImporter:
       name: misc-loud-p2-inactive
       rect:
         serializedVersion: 2
-        x: 57
-        y: 195
+        x: 162
+        y: 258
         width: 27
         height: 48
       alignment: 0
@@ -887,7 +887,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fe47d8c63fa9234282ca345a0c2a048
+      spriteID: c27520e9248d19942903155188465a39
       vertices: []
       indices: 
       edges: []
@@ -896,8 +896,8 @@ TextureImporter:
       name: misc-quiet-active
       rect:
         serializedVersion: 2
-        x: 85
-        y: 211
+        x: 190
+        y: 274
         width: 27
         height: 32
       alignment: 0
@@ -907,7 +907,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95738cdb149026e48becfbea9076ad69
+      spriteID: 9c94cbf4993da0d499717b2ca612dce7
       vertices: []
       indices: 
       edges: []
@@ -916,8 +916,8 @@ TextureImporter:
       name: misc-quiet-inactive
       rect:
         serializedVersion: 2
-        x: 113
-        y: 210
+        x: 218
+        y: 273
         width: 27
         height: 33
       alignment: 0
@@ -927,7 +927,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7091a3071c40df9439868b7a23990d8f
+      spriteID: cc388149e0676a3499ce7b6651918ff7
       vertices: []
       indices: 
       edges: []
@@ -936,7 +936,7 @@ TextureImporter:
       name: misc-soundwave
       rect:
         serializedVersion: 2
-        x: 141
+        x: 1
         y: 242
         width: 11
         height: 1
@@ -947,7 +947,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8bd5c4afa86432249b111d819124df5f
+      spriteID: f8c86512c1262bb40af92ae856d4d5a3
       vertices: []
       indices: 
       edges: []
@@ -956,7 +956,7 @@ TextureImporter:
       name: misc-timer-box1
       rect:
         serializedVersion: 2
-        x: 153
+        x: 13
         y: 211
         width: 80
         height: 32
@@ -967,7 +967,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b27311b219fdc34dbcbdaac54ff5f5e
+      spriteID: 6399e9e5b70faee418fdd530548200ea
       vertices: []
       indices: 
       edges: []
@@ -976,8 +976,8 @@ TextureImporter:
       name: rightman-idle-idle1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 154
+        x: 94
+        y: 203
         width: 40
         height: 40
       alignment: 0
@@ -987,7 +987,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79898da6308ef7841bf779dab1c26cc8
+      spriteID: 51e330c3ca04dc641aa7a9c6a08a5edb
       vertices: []
       indices: 
       edges: []
@@ -996,8 +996,8 @@ TextureImporter:
       name: rightman-idle-idle2
       rect:
         serializedVersion: 2
-        x: 42
-        y: 154
+        x: 135
+        y: 203
         width: 40
         height: 40
       alignment: 0
@@ -1007,7 +1007,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ac8dba8c76a89c4479e4a67dc8d1daa5
+      spriteID: 260d793251060f64ebf0129f09128628
       vertices: []
       indices: 
       edges: []
@@ -1016,8 +1016,8 @@ TextureImporter:
       name: rightman-quiet-quiet1
       rect:
         serializedVersion: 2
-        x: 83
-        y: 154
+        x: 176
+        y: 203
         width: 40
         height: 40
       alignment: 0
@@ -1027,7 +1027,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c2c12dbe2d178848988408cbc2e9e93
+      spriteID: 2d542b066cac03244be792d939df5277
       vertices: []
       indices: 
       edges: []
@@ -1036,8 +1036,8 @@ TextureImporter:
       name: rightman-quiet-quiet2
       rect:
         serializedVersion: 2
-        x: 124
-        y: 154
+        x: 1
+        y: 162
         width: 40
         height: 40
       alignment: 0
@@ -1047,7 +1047,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96f4f9ceb7266c44f85d950248192a29
+      spriteID: 8d1e0268b9c20204492163d69f2652fb
       vertices: []
       indices: 
       edges: []
@@ -1056,8 +1056,8 @@ TextureImporter:
       name: rightman-quiet-quiet3
       rect:
         serializedVersion: 2
-        x: 165
-        y: 154
+        x: 42
+        y: 162
         width: 40
         height: 40
       alignment: 0
@@ -1067,7 +1067,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79fe001c6a99cd84698a1e5669b694a4
+      spriteID: 0dc5b554f48b991448f161d7b3e0a500
       vertices: []
       indices: 
       edges: []
@@ -1076,8 +1076,8 @@ TextureImporter:
       name: rightman-quiet-quiet4
       rect:
         serializedVersion: 2
-        x: 206
-        y: 154
+        x: 83
+        y: 162
         width: 40
         height: 40
       alignment: 0
@@ -1087,7 +1087,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5888b36a4c016346ab7e0b721754919
+      spriteID: b41737aa8a3626841b84c3154515a27a
       vertices: []
       indices: 
       edges: []
@@ -1096,8 +1096,8 @@ TextureImporter:
       name: rightman-startle-loud1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 113
+        x: 124
+        y: 162
         width: 40
         height: 40
       alignment: 0
@@ -1107,7 +1107,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c608bff3b5ec198448c0f76d82603b93
+      spriteID: 0deb71e8f871386499f40e36cddee912
       vertices: []
       indices: 
       edges: []
@@ -1116,8 +1116,8 @@ TextureImporter:
       name: rightman-startle-loud2
       rect:
         serializedVersion: 2
-        x: 42
-        y: 113
+        x: 165
+        y: 162
         width: 40
         height: 40
       alignment: 0
@@ -1127,7 +1127,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43bc15347adcf1843920f3c81011ec6d
+      spriteID: aa60711e0791dbc4a911169d757a1f72
       vertices: []
       indices: 
       edges: []
@@ -1136,8 +1136,8 @@ TextureImporter:
       name: rightman-startle-loud3
       rect:
         serializedVersion: 2
-        x: 83
-        y: 113
+        x: 206
+        y: 162
         width: 40
         height: 40
       alignment: 0
@@ -1147,7 +1147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 223238b54b55a1941b06126799ec94e9
+      spriteID: 7c32db5e24c13ee4abe24a50218bcede
       vertices: []
       indices: 
       edges: []
@@ -1156,8 +1156,8 @@ TextureImporter:
       name: rightman-startle-loud4
       rect:
         serializedVersion: 2
-        x: 42
-        y: 113
+        x: 165
+        y: 162
         width: 40
         height: 40
       alignment: 0
@@ -1167,7 +1167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a3c54daa9b07f04689e23beb16386a0
+      spriteID: 47d8d05b75fae1b4e85c1986a4f20394
       vertices: []
       indices: 
       edges: []
@@ -1176,8 +1176,8 @@ TextureImporter:
       name: rightman-walk-walk1
       rect:
         serializedVersion: 2
-        x: 124
-        y: 113
+        x: 1
+        y: 121
         width: 40
         height: 40
       alignment: 0
@@ -1187,7 +1187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fbc3319dcea105f448094df49a09f318
+      spriteID: fea5711bd20b04a45a9c432101a3f433
       vertices: []
       indices: 
       edges: []
@@ -1196,8 +1196,8 @@ TextureImporter:
       name: rightman-walk-walk2
       rect:
         serializedVersion: 2
-        x: 165
-        y: 113
+        x: 42
+        y: 121
         width: 40
         height: 40
       alignment: 0
@@ -1207,7 +1207,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 833519dfa6bd82f449f7f1b7cca733a5
+      spriteID: 61df58d2fbd24b848b975fc932e70669
       vertices: []
       indices: 
       edges: []
@@ -1216,8 +1216,8 @@ TextureImporter:
       name: rightman-walk-walk3
       rect:
         serializedVersion: 2
-        x: 206
-        y: 113
+        x: 124
+        y: 162
         width: 40
         height: 40
       alignment: 0
@@ -1227,7 +1227,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 881767809115af74aad7bf9daf03e3f1
+      spriteID: e085cc1b1ab0dcb47a5c9d84826b534e
       vertices: []
       indices: 
       edges: []
@@ -1236,8 +1236,8 @@ TextureImporter:
       name: rightman-walk-walk4
       rect:
         serializedVersion: 2
-        x: 1
-        y: 72
+        x: 94
+        y: 203
         width: 40
         height: 40
       alignment: 0
@@ -1247,7 +1247,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44437a21afc488649a314a8a4ed2e1cf
+      spriteID: 7923dcc99b8be2443ac5f88afb3a0f09
       vertices: []
       indices: 
       edges: []
