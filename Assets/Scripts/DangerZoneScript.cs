@@ -85,8 +85,8 @@ public class DangerZoneScript : MonoBehaviour
 
 		Vector2[] nodes = this.gameObject.GetComponent<PolygonCollider2D>().GetPath(0);
 
-        float radius = lineScript.safeZoneRadius;
-        Vector2 wideSide = (safeZonePos - allyPos) * radius * 2f;
+        float distance = lineScript.safeZoneRadius * 2f;
+        Vector2 wideSide = (safeZonePos - allyPos) * distance;
         Vector2 normal = Vector2.Perpendicular(wideSide).normalized * height;
 
         nodes[0] = new Vector2(allyPos.x + wideSide.x + normal.x, allyPos.y + wideSide.y + normal.y);
