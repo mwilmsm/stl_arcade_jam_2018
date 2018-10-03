@@ -6,28 +6,10 @@ public class SafeZoneScript : MonoBehaviour {
 
     public GameObject leftCharacter;
     public GameObject rightCharacter;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        this.Center(leftCharacter.transform.position, rightCharacter.transform.position);
-	}
-
-    public void Center(Vector2 _initialPosition, Vector2 _finalPosition)
+    
+    // Update is called once per frame
+    void Update()
     {
-        Vector2 centerPos = (_initialPosition + _finalPosition) / 2f;
-        this.gameObject.transform.position = centerPos;
-
-        Vector2 direction = _finalPosition - _initialPosition;
-        direction.Normalize();
-        this.gameObject.transform.right = direction;
-
-        Vector2 scale = new Vector2(1, 1);
-        //scale.x = Vector2.Distance(_initialPosition, _finalPosition);
-        this.gameObject.transform.localScale = scale;
+        this.gameObject.transform.position = (leftCharacter.transform.position + rightCharacter.transform.position) / 2f;
     }
 }

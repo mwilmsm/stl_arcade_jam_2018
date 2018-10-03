@@ -19,7 +19,6 @@ public class DangerZoneScript : MonoBehaviour
 	private float silentTimer;
 	private float maxSilentTime;
 	private bool isSilent;
-    private float dangerZoneHeight = 1.0f;
 
     private bool isStunned;
 
@@ -74,24 +73,25 @@ public class DangerZoneScript : MonoBehaviour
 			silentTimer = 0f;
 		}
 
+        TrackDangerZoneMovement();
+
 	}
 
 	public void TrackDangerZoneMovement()
 	{
-        Vector2 safeZoneEdge = lineScript.transform.position;
-        Vector2 allyEdge = target.transform.position;
+        Vector2 safeZonePos = safeZone.transform.position;
+        Vector2 allyPos = target.transform.position;
+        float height = lineScript.yScale * 0.5f;
 
 		Vector2[] nodes = this.gameObject.GetComponent<PolygonCollider2D>().GetPath(0);
 
         float radius = lineScript.safeZoneRadius;
-        Vector2 wideSide = new Vector2(
-            ((safeZoneEdge.x - allyEdge.x) * lineScript.safeZoneRadius),
-            ((safeZoneEdge.y - allyEdge.y) * lineScript.safeZoneRadius));
-        Vector2 normal = Vector2.ClampMagnitude(Vector2.Perpendicular(safeZoneEdge - allyEdge), this.dangerZoneHeight);
+        Vector2 wideSide = (safeZonePos - allyPos) * radius * 2f;
+        Vector2 normal = Vector2.Perpendicular(wideSide).normalized * height;
 
-        nodes[0] = new Vector2(wideSide.x + (normal.x * 0.5f), wideSide.y + (normal.y * 0.5f));
-        nodes[1] = new Vector2(wideSide.x - (normal.x * 0.5f), wideSide.y - (normal.y * 0.5f));
-        nodes[2] = allyEdge;
+        nodes[0] = new Vector2(allyPos.x + wideSide.x + normal.x, allyPos.y + wideSide.y + normal.y);
+        nodes[1] = new Vector2(allyPos.x + wideSide.x - normal.x, allyPos.y + wideSide.y - normal.y);
+        nodes[2] = allyPos;
 
         this.gameObject.GetComponent<PolygonCollider2D>().SetPath(0, nodes);
 	}
