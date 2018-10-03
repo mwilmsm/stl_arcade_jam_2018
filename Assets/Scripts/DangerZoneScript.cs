@@ -6,8 +6,10 @@ public class DangerZoneScript : MonoBehaviour
 {
 
 	public GameObject target;
+    public GameObject safeZone;
 
 	private bool enemyStealing;
+    private LineScript lineScript;
 
 	private float timer = 0f;
 	private int stealTime = 1;
@@ -17,6 +19,7 @@ public class DangerZoneScript : MonoBehaviour
 	private float silentTimer;
 	private float maxSilentTime;
 	private bool isSilent;
+    private float dangerZoneHeight = 1.0f;
 
     private bool isStunned;
 
@@ -35,6 +38,7 @@ public class DangerZoneScript : MonoBehaviour
         EventManager.StartListening("STUN_DEACTIVATED", EndStun);
 
         GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
+        lineScript = GameObject.Find("PlayerSoundWave").GetComponent<LineScript>();
     }
 
 	// Update is called once per frame
@@ -74,9 +78,22 @@ public class DangerZoneScript : MonoBehaviour
 
 	public void TrackDangerZoneMovement()
 	{
+        Vector2 safeZoneEdge = lineScript.transform.position;
+        Vector2 allyEdge = target.transform.position;
+
 		Vector2[] nodes = this.gameObject.GetComponent<PolygonCollider2D>().GetPath(0);
-		nodes[3] = target.transform.position;
-		this.gameObject.GetComponent<PolygonCollider2D>().SetPath(0, nodes);
+
+        float radius = lineScript.safeZoneRadius;
+        Vector2 wideSide = new Vector2(
+            ((safeZoneEdge.x - allyEdge.x) * lineScript.safeZoneRadius),
+            ((safeZoneEdge.y - allyEdge.y) * lineScript.safeZoneRadius));
+        Vector2 normal = Vector2.ClampMagnitude(Vector2.Perpendicular(safeZoneEdge - allyEdge), this.dangerZoneHeight);
+
+        nodes[0] = new Vector2(wideSide.x + (normal.x * 0.5f), wideSide.y + (normal.y * 0.5f));
+        nodes[1] = new Vector2(wideSide.x - (normal.x * 0.5f), wideSide.y - (normal.y * 0.5f));
+        nodes[2] = allyEdge;
+
+        this.gameObject.GetComponent<PolygonCollider2D>().SetPath(0, nodes);
 	}
 
 	public void OnTriggerEnter2D(Collider2D collision)
