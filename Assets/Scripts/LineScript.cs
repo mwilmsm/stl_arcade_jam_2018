@@ -51,8 +51,8 @@ public class LineScript : MonoBehaviour {
 		beQuiet = false;
 		silenceTime = 0f;
 		
-		EventManager.StartListening("STUN_ACTIVATED", OnStun);
-		EventManager.StartListening("STUN_DEACTIVATED", EndStun);
+		EventManager.StartListening("ENEMY_STUNNED", OnStun);
+		EventManager.StartListening("ENEMY_UNSTUNNED", EndStun);
 	}
      
 	// Update is called once per frame

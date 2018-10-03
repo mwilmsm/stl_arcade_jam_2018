@@ -18,8 +18,8 @@ public class WanderTowardTargetScript : MonoBehaviour {
     void Start () {
         this.rb2d = gameObject.GetComponent<Rigidbody2D>();
         this.animator = gameObject.GetComponent<Animator>();
-        EventManager.StartListening("STUN_ACTIVATED", OnStunned);
-        EventManager.StartListening("STUN_DEACTIVATED", EndStunned);
+        EventManager.StartListening("ENEMY_STUNNED", OnStunned);
+        EventManager.StartListening("ENEMY_UNSTUNNED", EndStunned);
         Wander();
     }
 

@@ -7,8 +7,7 @@ public class DangerZoneScript : MonoBehaviour
 
 	public GameObject target;
     public GameObject safeZone;
-
-	private bool enemyStealing;
+    
     private LineScript lineScript;
 
 	private float timer = 0f;
@@ -25,16 +24,13 @@ public class DangerZoneScript : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		enemyStealing = false;
 		timer = 0f;
 
 		isSilent = false;
 		silentTimer = 0f;
 
-        isStunned = false;
-
-        EventManager.StartListening("STUN_ACTIVATED", OnStun);
-        EventManager.StartListening("STUN_DEACTIVATED", EndStun);
+        EventManager.StartListening("ENEMY_STUNNED", OnStun);
+        EventManager.StartListening("ENEMY_UNSTUNNED", EndStun);
 
         GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
         lineScript = GameObject.Find("PlayerSoundWave").GetComponent<LineScript>();
@@ -45,7 +41,7 @@ public class DangerZoneScript : MonoBehaviour
 	{
 		timer += Time.deltaTime;
 
-		if (enemyStealing && !isSilent && !isStunned)
+		if (GameStatusScript.enemyInDangerZone && !isSilent && !isStunned)
 		{
 			if (timer >= stealTime)
 			{
@@ -97,7 +93,7 @@ public class DangerZoneScript : MonoBehaviour
 	{
 		if (collision.gameObject.name == "enemy")
 		{
-			enemyStealing = true;
+            GameStatusScript.enemyInDangerZone = true;
 			LosingSecrets();
 		}
 	}
@@ -106,7 +102,7 @@ public class DangerZoneScript : MonoBehaviour
 	{
 		if (collision.gameObject.name == "enemy")
 		{
-			enemyStealing = false;
+            GameStatusScript.enemyInDangerZone = false;
 			timer = 0f;
 		}
 	}
@@ -127,7 +123,7 @@ public class DangerZoneScript : MonoBehaviour
     public void OnStun()
     {
         this.isStunned = true;
-	    gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        gameObject.GetComponent<PolygonCollider2D>().enabled = false;
     }
 
     public void EndStun()

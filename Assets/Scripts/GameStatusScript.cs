@@ -21,6 +21,8 @@ public class GameStatusScript : MonoBehaviour
 	public GameObject Timer;
 	public GameObject CatTracker;
 
+    public bool enemyInDangerZone;
+
 	public int MaxSecrets = 25;
 	public float MaxGameTime = 240f;
 
@@ -63,6 +65,7 @@ public class GameStatusScript : MonoBehaviour
 		GameOver = false;
 		GoodEnding = false;
 		BadEnding = false;
+        enemyInDangerZone = true;
 		
 		GameOverPanel.SetActive(false);
 		GoodEndingPanel.SetActive(false);
@@ -194,6 +197,7 @@ public class GameStatusScript : MonoBehaviour
 
 	public void SecretsStolen()
 	{
+        enemyInDangerZone = true;
 		SecretsStolen(1);
 	}
 

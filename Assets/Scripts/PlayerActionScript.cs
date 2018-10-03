@@ -11,6 +11,7 @@ public class PlayerActionScript : MonoBehaviour
 
     private float stunTimer;
     private bool stunActivated = false;
+    private bool enemyStunned = false;
 
     public float silenceCooldown = 10f;
     private float silenceTimer;
@@ -46,14 +47,24 @@ public class PlayerActionScript : MonoBehaviour
                 stunActivated = true;
                 stunTimer = Time.time;
                 this.animator.SetTrigger("pushedStunButton");
+                if (GameStatusScript.enemyInDangerZone)
+                {
+                    EventManager.TriggerEvent("ENEMY_STUNNED");
+                    this.enemyStunned = true;
+                }
                 EventManager.TriggerEvent("STUN_ACTIVATED");
-                StunTheCat();
+                PlaySound("StunningSound");
             }
         }
-        else if (Time.time > stunTimer + stunDuration)
+        else if (Time.time > stunTimer + stunCooldown)
         {
             stunActivated = false;
             EventManager.TriggerEvent("STUN_DEACTIVATED");
+        }
+
+        if(enemyStunned && Time.time > stunTimer + stunDuration)
+        {
+            EventManager.TriggerEvent("ENEMY_UNSTUNNED");
         }
 
         if (Input.GetButtonDown(player + "Button1") && !silenceActivated)
@@ -96,11 +107,6 @@ public class PlayerActionScript : MonoBehaviour
 
         silenceActivated = true;
         silenceTimer = 0f;
-    }
-
-    public void StunTheCat()
-    {
-        PlaySound("StunningSound");
     }
 
 public virtual void PlaySound(string soundName)
