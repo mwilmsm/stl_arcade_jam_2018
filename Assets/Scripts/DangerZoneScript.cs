@@ -81,18 +81,15 @@ public class DangerZoneScript : MonoBehaviour
 	{
         Vector2 safeZonePos = safeZone.transform.position;
         Vector2 allyPos = target.transform.position;
-        float height = lineScript.yScale * 0.5f;
+                
+        Vector2 wideSide = (safeZonePos - allyPos) * lineScript.safeZoneRadius * 2f;
+        Vector2 normal = Vector2.Perpendicular(wideSide).normalized * lineScript.yScale * 0.5f;
 
-		Vector2[] nodes = this.gameObject.GetComponent<PolygonCollider2D>().GetPath(0);
-
-        float distance = lineScript.safeZoneRadius * 2f;
-        Vector2 wideSide = (safeZonePos - allyPos) * distance;
-        Vector2 normal = Vector2.Perpendicular(wideSide).normalized * height;
-
-        nodes[0] = new Vector2(allyPos.x + wideSide.x + normal.x, allyPos.y + wideSide.y + normal.y);
-        nodes[1] = new Vector2(allyPos.x + wideSide.x - normal.x, allyPos.y + wideSide.y - normal.y);
-        nodes[2] = allyPos;
-
+        // I have no clue why the - 1.5f is necessary, but all the danger zone boxes end up too high up if it isn't here. -mw
+        Vector2[] nodes = this.gameObject.GetComponent<PolygonCollider2D>().GetPath(0);
+        nodes[0] = new Vector2(allyPos.x + wideSide.x + normal.x, allyPos.y + wideSide.y + normal.y - 1.5f);
+        nodes[1] = new Vector2(allyPos.x + wideSide.x - normal.x, allyPos.y + wideSide.y - normal.y - 1.5f);
+        nodes[2] = new Vector2(allyPos.x, allyPos.y - 1.5f);
         this.gameObject.GetComponent<PolygonCollider2D>().SetPath(0, nodes);
 	}
 
