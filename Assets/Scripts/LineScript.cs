@@ -24,7 +24,8 @@ public class LineScript : MonoBehaviour {
 	public float yScale = 1;
 	public float xScale = 1;
 	private float wiggle;
-	public bool wiggleInverse = true;
+	
+	public bool isAlly;
 
 	private bool beQuiet;
 	private float silenceTime;
@@ -51,8 +52,8 @@ public class LineScript : MonoBehaviour {
 		beQuiet = false;
 		silenceTime = 0f;
 		
-		EventManager.StartListening("ENEMY_STUNNED", OnStun);
-		EventManager.StartListening("ENEMY_UNSTUNNED", EndStun);
+		EventManager.StartListening("STUN_ACTIVATED", OnStun);
+		EventManager.StartListening("STUN_DEACTIVATED", EndStun);
 	}
      
 	// Update is called once per frame
@@ -69,6 +70,12 @@ public class LineScript : MonoBehaviour {
 
 			wiggle += Time.deltaTime;
 
+			float maxWiggle = (Mathf.PI * 2); 
+			if (wiggle > maxWiggle)
+			{
+				wiggle = 0;
+			}
+			
 			if (beQuiet)
 			{
 				silenceTime += Time.deltaTime;
@@ -82,15 +89,6 @@ public class LineScript : MonoBehaviour {
 				}
 			}
 			
-
-			float maxWiggle = (Mathf.PI * 2); 
-			if (wiggle > maxWiggle)
-			{
-				wiggle = 0;
-			}
-			
-			
-
 			line.positionCount = linePoints;
 
 			line.SetPosition(0, start);
@@ -165,7 +163,18 @@ public class LineScript : MonoBehaviour {
 
 	float ComputeSin(float x)
 	{
-		float sinValue = Mathf.Sin(x + wiggle) * sinFreq;
+
+		float sinValue;
+		if (isAlly)
+		{
+			sinValue = Mathf.Sin(x - wiggle) * sinFreq;
+		}
+		else
+		{
+			sinValue = Mathf.Sin(x + wiggle) * sinFreq;
+		}
+		
+		
 
 		return sinValue;
 	}
@@ -184,19 +193,31 @@ public class LineScript : MonoBehaviour {
 	{
 		float nextPoint;
 		float nextDistance = ((distanceBetween / linePoints) * currentPoint);
-
+		
 		if (nextDistance > distanceBetween)
 		{
 			nextDistance = distanceBetween;
 		}
-		
-		nextPoint = start.x +  (xScale * nextDistance);
 
-		if (nextPoint > (stop.x * xScale))
+		if (isAlly)
 		{
-			nextPoint = stop.x;
+			nextPoint = start.x - (xScale * nextDistance);
+			
+			if (nextPoint < (stop.x * xScale))
+			{
+				nextPoint = stop.x;
+			}
 		}
-		
+		else
+		{
+			nextPoint = start.x + (xScale * nextDistance);
+			
+			if (nextPoint > (stop.x * xScale))
+			{
+				nextPoint = stop.x;
+			}
+		}
+
 		return nextPoint;
 	}
 
