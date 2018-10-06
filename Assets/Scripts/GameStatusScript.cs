@@ -39,7 +39,7 @@ public class GameStatusScript : MonoBehaviour
 	private Color highSecret =  new Color(1f,0f,0f,1f);
 
 	private LineScript playerLineScript;
-	private AllyLineScript AllyLineScript;
+	private LineScript AllyLineScript;
 
 	private DangerZoneScript leftDangerZoneScript;
 	private DangerZoneScript rightDangerZoneScript;
@@ -65,7 +65,7 @@ public class GameStatusScript : MonoBehaviour
 		GameOver = false;
 		GoodEnding = false;
 		BadEnding = false;
-        enemyInDangerZone = true;
+        enemyInDangerZone = false;
 		
 		GameOverPanel.SetActive(false);
 		GoodEndingPanel.SetActive(false);
@@ -78,7 +78,7 @@ public class GameStatusScript : MonoBehaviour
 		secretBar.maxValue = MaxSecrets;
 
 		playerLineScript = GameObject.Find("PlayerSoundWave").GetComponent<LineScript>();
-		AllyLineScript = GameObject.Find("AllySoundWave").GetComponent<AllyLineScript>();
+		AllyLineScript = GameObject.Find("AllySoundWave").GetComponent<LineScript>();
 
 		leftDangerZoneScript = GameObject.Find("DangerZoneLeft").GetComponent<DangerZoneScript>();
 		rightDangerZoneScript = GameObject.Find("DangerZoneRight").GetComponent<DangerZoneScript>();
