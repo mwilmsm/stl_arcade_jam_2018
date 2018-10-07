@@ -55,6 +55,11 @@ public class GameStatusScript : MonoBehaviour
 	public GameObject CooldownP2StunButton;
 
 	private bool player2;
+
+	public bool Tutorial; 
+	public GameObject tutorialScreen; 
+	public GameObject[] tutorials; 
+	private int currentTutorial = 0;
 	
 	
 	// Use this for initialization
@@ -70,8 +75,10 @@ public class GameStatusScript : MonoBehaviour
 		GameOverPanel.SetActive(false);
 		GoodEndingPanel.SetActive(false);
 		BadEndingPanel.SetActive(false);
-		
-		Time.timeScale = 1f;
+
+
+		TutorialScreens();
+		Time.timeScale = 0f;
 		
 		secretBar = CatTracker.GetComponentInChildren<Slider>();
 
@@ -119,6 +126,17 @@ public class GameStatusScript : MonoBehaviour
 			GameOverScreen();
 		}
 
+		if (Tutorial)
+		{
+			if (Input.GetButtonDown("Player1Button1") || Input.GetButtonDown("Player1Button2"))
+			{
+				NextTutorial();
+			}else if (Input.GetButtonDown("Player1Button1") && Input.GetButtonDown("Player1Button2"))
+			{
+				StartGame();
+			}
+		}
+		
 		if (GameOver)
 		{
 			if (Input.GetButtonDown("Player1Button2"))
@@ -181,6 +199,42 @@ public class GameStatusScript : MonoBehaviour
 		}
 
 		
+	}
+	
+	private void TutorialScreens()
+	{
+		Tutorial = true;
+		tutorialScreen.SetActive(true);
+		tutorials[0].SetActive(true);
+
+		
+	}
+
+	private void NextTutorial()
+	{
+		tutorials[currentTutorial].SetActive(false);
+		if (currentTutorial < tutorials.Length -1)
+		{
+			currentTutorial++;
+			tutorials[currentTutorial].SetActive(true);
+		}
+		else
+		{
+			StartGame();
+		}
+
+	}
+
+	private void PreviousTutorial()
+	{
+		
+	}
+
+	private void StartGame()
+	{
+		tutorialScreen.SetActive(false);
+		Tutorial = false;
+		Time.timeScale = 1f;	
 	}
 
 	public void RestartGame()
