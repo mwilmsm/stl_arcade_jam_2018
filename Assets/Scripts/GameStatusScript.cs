@@ -38,15 +38,6 @@ public class GameStatusScript : MonoBehaviour
 	private Color midSecret =  new Color(1f,.5f,0f,1f);
 	private Color highSecret =  new Color(1f,0f,0f,1f);
 
-	private LineScript playerLineScript;
-	private LineScript AllyLineScript;
-
-	private DangerZoneScript leftDangerZoneScript;
-	private DangerZoneScript rightDangerZoneScript;
-	
-	public float timetoBeQuiet = 3f;
-	public float stunTime = 3f;
-
 	public GameObject ReadySilenceButton;
 	public GameObject CooldownSilenceButton;
 	public GameObject ReadyP1StunButton;
@@ -83,23 +74,17 @@ public class GameStatusScript : MonoBehaviour
 		secretBar = CatTracker.GetComponentInChildren<Slider>();
 
 		secretBar.maxValue = MaxSecrets;
-
-		playerLineScript = GameObject.Find("PlayerSoundWave").GetComponent<LineScript>();
-		AllyLineScript = GameObject.Find("AllySoundWave").GetComponent<LineScript>();
-
-		leftDangerZoneScript = GameObject.Find("DangerZoneLeft").GetComponent<DangerZoneScript>();
-		rightDangerZoneScript = GameObject.Find("DangerZoneRight").GetComponent<DangerZoneScript>();
 		
 		PlaySound("Gamebegin");
 		PlaySound("Talking");
 		
 		EventManager.StartListening("STUN_ACTIVATED", OnStun);
-		EventManager.StartListening("STUN_DEACTIVATED", EndStun);
+		EventManager.StartListening("STUN_REFRESH", EndStunCooldown);
 		
 		EventManager.StartListening("PLAYER2_JOIN", JoinPlayer2);
 		
 		EventManager.StartListening("SILENT_ACTIVATED", OnSilent);
-		EventManager.StartListening("SILENT_DEACTIVATED", EndSlient);
+		EventManager.StartListening("SILENT_REFRESH", EndSlientCooldown);
 
 		player2 = false;
 	}
@@ -261,14 +246,14 @@ public class GameStatusScript : MonoBehaviour
 		PlaySound("EnemyHears");
 	}
     
-	public void KeepThemSecrets()
-	{
-		playerLineScript.SilenceTheLine(timetoBeQuiet);
-		AllyLineScript.SilenceTheLine(timetoBeQuiet);
-		
-		leftDangerZoneScript.KeepThemSecrets(timetoBeQuiet);
-		rightDangerZoneScript.KeepThemSecrets(timetoBeQuiet);
-	}
+//	public void KeepThemSecrets()
+//	{
+////		playerLineScript.SilenceTheLine(timetoBeQuiet);
+////		AllyLineScript.SilenceTheLine(timetoBeQuiet);
+//		
+//		leftDangerZoneScript.KeepThemSecrets(timetoBeQuiet);
+//		rightDangerZoneScript.KeepThemSecrets(timetoBeQuiet);
+//	}
 	
 	public virtual void PlaySound(string soundName)
 	{
@@ -316,7 +301,7 @@ public class GameStatusScript : MonoBehaviour
 		}
 	}
 
-	private void EndStun()
+	private void EndStunCooldown()
 	{
 		if (player2)
 		{
@@ -339,7 +324,7 @@ public class GameStatusScript : MonoBehaviour
 		StopSound("Talking");
 	}
 
-	private void EndSlient()
+	private void EndSlientCooldown()
 	{
 		ReadySilenceButton.SetActive(true);
 		CooldownSilenceButton.SetActive(false);

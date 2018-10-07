@@ -15,8 +15,7 @@ public class DangerZoneScript : MonoBehaviour
 
 	private GameStatusScript GameStatusScript;
 
-	private float silentTimer;
-	private float maxSilentTime;
+
 	private bool isSilent;
 
     private bool isStunned;
@@ -26,11 +25,11 @@ public class DangerZoneScript : MonoBehaviour
 	{
 		timer = 0f;
 
-		isSilent = false;
-		silentTimer = 0f;
-
         EventManager.StartListening("ENEMY_STUNNED", OnStun);
         EventManager.StartListening("ENEMY_UNSTUNNED", EndStun);
+		
+		EventManager.StartListening("SILENT_ACTIVATED", KeepThemSecrets);
+		EventManager.StartListening("SILENT_DEACTIVATED", StartTalking);
 
         GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
         lineScript = GameObject.Find("PlayerSoundWave").GetComponent<LineScript>();
@@ -54,20 +53,6 @@ public class DangerZoneScript : MonoBehaviour
 			timer = 0f;
 		}
 
-		if (isSilent)
-		{
-			silentTimer += Time.deltaTime;
-			if (silentTimer > maxSilentTime)
-			{
-				isSilent = false;
-				silentTimer = 0f;
-				gameObject.GetComponent<PolygonCollider2D>().enabled = true;
-			}
-		}
-		else
-		{
-			silentTimer = 0f;
-		}
 
         TrackDangerZoneMovement();
 
@@ -93,8 +78,11 @@ public class DangerZoneScript : MonoBehaviour
 	{
 		if (collision.gameObject.name == "enemy")
 		{
-            GameStatusScript.enemyInDangerZone = true;
-			LosingSecrets();
+			if (!isSilent || !isStunned)
+			{
+				GameStatusScript.enemyInDangerZone = true;
+				LosingSecrets();
+			}
 		}
 	}
 
@@ -113,11 +101,18 @@ public class DangerZoneScript : MonoBehaviour
 		GameStatusScript.SecretsStolen();
 	}
 
-	public void KeepThemSecrets(float timeToBeQuiet)
+	public void KeepThemSecrets()
 	{
-		maxSilentTime = timeToBeQuiet;
 		isSilent = true;
 		gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+		GameStatusScript.enemyInDangerZone = false;
+		timer = 0f;
+	}
+	
+	public void StartTalking()
+	{
+		isSilent = false;
+		gameObject.GetComponent<PolygonCollider2D>().enabled = true;
 	}
 
     public void OnStun()

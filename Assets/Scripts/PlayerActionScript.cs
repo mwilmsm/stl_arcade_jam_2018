@@ -6,16 +6,19 @@ public class PlayerActionScript : MonoBehaviour
 {
 
     public string player;
+
     public float stunCooldown;
     public float stunDuration;
-
     private float stunTimer;
     private bool stunActivated = false;
     private bool enemyStunned = false;
+    private bool stunAvailable = false;
 
     public float silenceCooldown = 10f;
+    public float silenceDuration;
     private float silenceTimer;
     private bool silenceActivated = false;
+    private bool silenceAvailable = false;
 
     private AllyMovementScript AllyMovementScript;
     private bool player2Active;
@@ -27,61 +30,66 @@ public class PlayerActionScript : MonoBehaviour
 
     private void Start()
     {
-        stunTimer = -1 * stunCooldown;
         player2Active = false;
         AllyMovementScript = GameObject.Find("Ally1").GetComponentInChildren<AllyMovementScript>();
         GameStatusScript = GameObject.Find("GameStatus").GetComponent<GameStatusScript>();
         this.animator = this.gameObject.GetComponent<Animator>();
 
+        silenceAvailable = true;
         silenceTimer = 0f;
+        stunAvailable = true;
+        stunTimer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         silenceTimer += Time.deltaTime;
+        stunTimer += Time.deltaTime;
         if (!stunActivated)
         {
-            if (Input.GetButtonDown(player + "Button2") && (Time.time > stunTimer + stunCooldown))
+            if (Input.GetButtonDown(player + "Button2") && (stunTimer >= stunCooldown))
             {
-                stunActivated = true;
-                stunTimer = Time.time;
-                this.animator.SetTrigger("pushedStunButton");
-                if (GameStatusScript.enemyInDangerZone)
-                {
-                    EventManager.TriggerEvent("ENEMY_STUNNED");
-                    this.enemyStunned = true;
-                }
-                EventManager.TriggerEvent("STUN_ACTIVATED");
-                PlaySound("StunningSound");
+                PressStunButton();
             }
         }
-        else if (Time.time > stunTimer + stunCooldown)
+        else if (stunTimer > stunDuration)
         {
-            stunActivated = false;
-            EventManager.TriggerEvent("STUN_DEACTIVATED");
+           Unstun();
         }
 
-        if(enemyStunned && Time.time > stunTimer + stunDuration)
+        if (!stunAvailable && stunTimer >= stunCooldown)
+        {
+            StunRefresh();
+        }
+
+        if (enemyStunned && stunTimer > stunDuration)
         {
             EventManager.TriggerEvent("ENEMY_UNSTUNNED");
         }
 
-        if (Input.GetButtonDown(player + "Button1") && !silenceActivated)
+        if (!silenceActivated)
         {
-            if (player == "Player1")
+            if (Input.GetButtonDown(player + "Button1") && (silenceTimer >= silenceCooldown))
             {
-                PressQuietButton();
-            }else if (player == "Player2" && player2Active)
-            {
-                PressQuietButton();
+                if (player == "Player1")
+                {
+                    PressQuietButton();
+                }
+                else if (player == "Player2" && player2Active)
+                {
+                    PressQuietButton();
+                }
             }
 
+        }else if (silenceTimer > silenceDuration)
+        {
+            Unsilence();
         }
 
-        if (silenceActivated && silenceTimer >= silenceCooldown)
+        if (!silenceAvailable && silenceTimer >= silenceCooldown)
         {
-            silenceActivated = false;
+            SilenceRefresh();
         }
 
 
@@ -96,6 +104,35 @@ public class PlayerActionScript : MonoBehaviour
             }
         }
     }
+    
+    private void PressStunButton()
+    {
+        stunActivated = true;
+        stunAvailable = false;
+        this.animator.SetTrigger("pushedStunButton");
+        if (GameStatusScript.enemyInDangerZone)
+        {
+            EventManager.TriggerEvent("ENEMY_STUNNED");
+            this.enemyStunned = true;
+        }
+
+        EventManager.TriggerEvent("STUN_ACTIVATED");
+        PlaySound("StunningSound");
+
+        stunTimer = 0f;
+    }
+
+    private void Unstun()
+    {
+        stunActivated = false;
+        EventManager.TriggerEvent("STUN_DEACTIVATED");
+    }
+
+    private void StunRefresh()
+    {
+        EventManager.TriggerEvent("STUN_REFRESH");
+        stunAvailable = true;
+    }
 
     private void PressQuietButton()
     {
@@ -103,19 +140,31 @@ public class PlayerActionScript : MonoBehaviour
         this.animator.SetTrigger("pushedQuietButton");
 
         EventManager.TriggerEvent("SILENT_ACTIVATED");
-        GameStatusScript.KeepThemSecrets();
 
         silenceActivated = true;
+        silenceAvailable = false;
         silenceTimer = 0f;
     }
 
-public virtual void PlaySound(string soundName)
+    private void Unsilence()
+    {
+        EventManager.TriggerEvent("SILENT_DEACTIVATED");
+        silenceActivated = false;
+    }
+
+    private void SilenceRefresh()
+    {
+        EventManager.TriggerEvent("SILENT_REFRESH");
+        silenceAvailable = true;
+    }
+
+    public virtual void PlaySound(string soundName)
     {
         AudioSource[] sounds = GetComponents<AudioSource>();
 
         for (int i = 0; i < sounds.Length; i++)
         {
-            if (sounds[i].clip.name.Contains(soundName)) 
+            if (sounds[i].clip.name.Contains(soundName))
             {
                 sounds[i].Play();
             }

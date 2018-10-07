@@ -28,9 +28,7 @@ public class LineScript : MonoBehaviour {
 	public bool isAlly;
 
 	private bool beQuiet;
-	private float silenceTime;
 
-	private float maxSilentTime = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -50,10 +48,12 @@ public class LineScript : MonoBehaviour {
 		FindDistanceBetween();
 
 		beQuiet = false;
-		silenceTime = 0f;
 		
 		EventManager.StartListening("STUN_ACTIVATED", OnStun);
 		EventManager.StartListening("STUN_DEACTIVATED", EndStun);
+		
+		EventManager.StartListening("SILENT_ACTIVATED", SilenceTheLine);
+		EventManager.StartListening("SILENT_DEACTIVATED", StartTalking);
 	}
      
 	// Update is called once per frame
@@ -74,19 +74,6 @@ public class LineScript : MonoBehaviour {
 			if (wiggle > maxWiggle)
 			{
 				wiggle = 0;
-			}
-			
-			if (beQuiet)
-			{
-				silenceTime += Time.deltaTime;
-
-				if (silenceTime >= maxSilentTime)
-				{
-					beQuiet = false;
-                    this.safeZoneRadius = this.defaultSafeZoneRadius;
-                    silenceTime = 0f;
-					EventManager.TriggerEvent("SILENT_DEACTIVATED");
-				}
 			}
 			
 			line.positionCount = linePoints;
@@ -221,13 +208,16 @@ public class LineScript : MonoBehaviour {
 		return nextPoint;
 	}
 
-	public void SilenceTheLine(float timeToBeQuiet)
+	public void SilenceTheLine()
 	{
-		beQuiet = true;
-		silenceTime = 0f;
-		maxSilentTime = timeToBeQuiet;
-       
+		beQuiet = true;  
     }
+
+	public void StartTalking()
+	{
+		beQuiet = false;
+		this.safeZoneRadius = this.defaultSafeZoneRadius;
+	}
 
 	private void OnStun()
 	{
