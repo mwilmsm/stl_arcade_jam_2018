@@ -1719,6 +1719,7 @@ MonoBehaviour:
   stunCooldown: 5
   stunDuration: 3
   silenceCooldown: 5
+  silenceDuration: 3
 --- !u!95 &1116713622
 Animator:
   serializedVersion: 3
@@ -3123,6 +3124,7 @@ MonoBehaviour:
   stunCooldown: 5
   stunDuration: 3
   silenceCooldown: 5
+  silenceDuration: 3
 --- !u!95 &1811641500
 Animator:
   serializedVersion: 3
