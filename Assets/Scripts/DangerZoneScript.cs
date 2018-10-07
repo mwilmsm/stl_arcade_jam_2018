@@ -82,10 +82,10 @@ public class DangerZoneScript : MonoBehaviour
         Vector2 normal = Vector2.Perpendicular(wideSide).normalized * lineScript.yScale * 0.5f;
 
         // I have no clue why the - 1.5f is necessary, but all the danger zone boxes end up too high up if it isn't here. -mw
-        Vector2[] nodes = this.gameObject.GetComponent<PolygonCollider2D>().GetPath(0);
-        nodes[0] = new Vector2(allyPos.x + wideSide.x + normal.x, allyPos.y + wideSide.y + normal.y - 1.5f);
-        nodes[1] = new Vector2(allyPos.x + wideSide.x - normal.x, allyPos.y + wideSide.y - normal.y - 1.5f);
-        nodes[2] = new Vector2(allyPos.x, allyPos.y - 1.5f);
+        Vector2[] nodes = new Vector2[3];
+        nodes[0] = new Vector2(allyPos.x + wideSide.x + normal.x, allyPos.y + wideSide.y + normal.y);
+        nodes[1] = new Vector2(allyPos.x + wideSide.x - normal.x, allyPos.y + wideSide.y - normal.y);
+        nodes[2] = new Vector2(allyPos.x, allyPos.y);
         this.gameObject.GetComponent<PolygonCollider2D>().SetPath(0, nodes);
 	}
 

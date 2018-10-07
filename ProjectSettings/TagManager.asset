@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Character
   - Map
+  - CharacterParent
   layers:
   - Default
   - TransparentFX
