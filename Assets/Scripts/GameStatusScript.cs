@@ -56,7 +56,7 @@ public class GameStatusScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		GameTime = 0f;
+		GameTime = MaxGameTime;
 
 		GameOver = false;
 		GoodEnding = false;
@@ -92,11 +92,11 @@ public class GameStatusScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		GameTime += Time.deltaTime;
+		GameTime -= Time.deltaTime;
 
 		//Update Game Timer
 
-		if (GameTime > MaxGameTime && !GameOver)
+		if (GameTime <= 0 && !GameOver)
 		{
 			GameOver = true;
 			GoodEnding = true;
